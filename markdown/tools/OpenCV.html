@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenCV | Leix Wang</title>
+    <meta name="description" content="多年的笔记文档整理.">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.206f5dc1.css" as="style"><link rel="preload" href="/assets/js/app.6366756d.js" as="script"><link rel="preload" href="/assets/js/2.92557040.js" as="script"><link rel="preload" href="/assets/js/46.bdb7780e.js" as="script"><link rel="prefetch" href="/assets/js/10.0f5638bb.js"><link rel="prefetch" href="/assets/js/11.a71ff745.js"><link rel="prefetch" href="/assets/js/12.a0ab6518.js"><link rel="prefetch" href="/assets/js/13.aca761e5.js"><link rel="prefetch" href="/assets/js/14.5ee8065b.js"><link rel="prefetch" href="/assets/js/15.82d1b2a2.js"><link rel="prefetch" href="/assets/js/16.5ebe1d67.js"><link rel="prefetch" href="/assets/js/17.f5c5f6c5.js"><link rel="prefetch" href="/assets/js/18.d899bd13.js"><link rel="prefetch" href="/assets/js/19.2f61c920.js"><link rel="prefetch" href="/assets/js/20.15f0b97a.js"><link rel="prefetch" href="/assets/js/21.3a7c68ff.js"><link rel="prefetch" href="/assets/js/22.2774cc27.js"><link rel="prefetch" href="/assets/js/23.cd16d512.js"><link rel="prefetch" href="/assets/js/24.901fec5b.js"><link rel="prefetch" href="/assets/js/25.fc275a06.js"><link rel="prefetch" href="/assets/js/26.ea2c18f9.js"><link rel="prefetch" href="/assets/js/27.89bb00ed.js"><link rel="prefetch" href="/assets/js/28.993d7711.js"><link rel="prefetch" href="/assets/js/29.23169a7c.js"><link rel="prefetch" href="/assets/js/3.6abc298a.js"><link rel="prefetch" href="/assets/js/30.007351db.js"><link rel="prefetch" href="/assets/js/31.944b2b29.js"><link rel="prefetch" href="/assets/js/32.840fab8a.js"><link rel="prefetch" href="/assets/js/33.7b1e44ad.js"><link rel="prefetch" href="/assets/js/34.444dcd6a.js"><link rel="prefetch" href="/assets/js/35.25a3a982.js"><link rel="prefetch" href="/assets/js/36.e0492998.js"><link rel="prefetch" href="/assets/js/37.cea9889b.js"><link rel="prefetch" href="/assets/js/38.c83bc71f.js"><link rel="prefetch" href="/assets/js/39.6f333022.js"><link rel="prefetch" href="/assets/js/4.3ff2fe10.js"><link rel="prefetch" href="/assets/js/40.531bab97.js"><link rel="prefetch" href="/assets/js/41.18bc33d4.js"><link rel="prefetch" href="/assets/js/42.9902aa75.js"><link rel="prefetch" href="/assets/js/43.df9fdfb8.js"><link rel="prefetch" href="/assets/js/44.b6c777c0.js"><link rel="prefetch" href="/assets/js/45.6df5fdf7.js"><link rel="prefetch" href="/assets/js/47.7b7f2046.js"><link rel="prefetch" href="/assets/js/48.8ccabaeb.js"><link rel="prefetch" href="/assets/js/49.13e5f339.js"><link rel="prefetch" href="/assets/js/5.5271a1ba.js"><link rel="prefetch" href="/assets/js/50.7d905fe9.js"><link rel="prefetch" href="/assets/js/51.99dbc8f3.js"><link rel="prefetch" href="/assets/js/52.be7dc0ce.js"><link rel="prefetch" href="/assets/js/53.4569311f.js"><link rel="prefetch" href="/assets/js/54.a3139ac5.js"><link rel="prefetch" href="/assets/js/55.7b1cd4c2.js"><link rel="prefetch" href="/assets/js/56.14c69e56.js"><link rel="prefetch" href="/assets/js/57.05a829ab.js"><link rel="prefetch" href="/assets/js/6.c42490f5.js"><link rel="prefetch" href="/assets/js/7.b8ff2a4d.js"><link rel="prefetch" href="/assets/js/8.cfaa9397.js"><link rel="prefetch" href="/assets/js/9.32ffd1ad.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.206f5dc1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Leix Wang</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/markdown/" class="nav-link router-link-active">MarkDown</a></div> <a href="https://github.com/leixwang/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/markdown/" class="nav-link router-link-active">MarkDown</a></div> <a href="https://github.com/leixwang/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue </span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/markdown/vue/" class="sidebar-link">Getting Started</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React </span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>服务器配置文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>免费电子书</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WEB 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>RAG.JS 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ETH DAPP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Matrix-synapse</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Open SIP 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>管理学</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="opencv"><a href="#opencv" class="header-anchor">#</a> OpenCV</h1> <h2 id="搭建opencv环境"><a href="#搭建opencv环境" class="header-anchor">#</a> 搭建OpenCV环境</h2> <h3 id="下载-编译opencv程序源码"><a href="#下载-编译opencv程序源码" class="header-anchor">#</a> 下载/编译OpenCV程序源码</h3> <ul><li>OpenCV官方网站]下载最新版的OpenCV for Linux/Mac源码[http://opencv.org/]</li> <li>Ubuntu 14.04 安装软件支持</li></ul> <div class="language- extra-class"><pre class="language-text"><code>$ sudo apt-get install build-essential cmake libgtk2.0-dev pkg-config python-dev python-numpy libavcodec-dev libavformat-dev libswscale-dev
+$ cd opencv-3.1.0
+$ mkdir release
+$ cd release
+//cmake编译OpenCV源码，安装所有的lib文件都会被安装到/usr/local目录下
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+</code></pre></div><h3 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h3> <div class="language- extra-class"><pre class="language-text"><code>$ sudo make install
+</code></pre></div><h3 id="下载-编译opencv-for-java支持库"><a href="#下载-编译opencv-for-java支持库" class="header-anchor">#</a> 下载/编译OpenCV for Java支持库</h3> <ul><li>OpenCV Java文档]按照说明使用git clone源码 http://docs.opencv.org/2.4/doc/tutorials/introduction/desktop_java/java_dev_intro.html</li></ul> <div class="language- extra-class"><pre class="language-text"><code>$ git clone git://github.com/Itseez/opencv.git
+$ cd opencv
+$ git checkout 2.4 //Branch视版本而定
+$ mkdir build
+$ cd build
+ 
+$ cmake -DBUILD_SHARED_LIBS=OFF ..
+//如果报找不到JAVA_HOME环境变量请确认系统是否配置Jdk环境
+$ make -j8
+//目前编译有误，无法得到jar文件和SO库文件
+</code></pre></div><h3 id="下载-编译opencv-for-android支持库"><a href="#下载-编译opencv-for-android支持库" class="header-anchor">#</a> 下载/编译OpenCV for Android支持库</h3> <ul><li>OpenCV官方网站]下载最新版的OpenCV for Android源码 http://opencv.org/</li> <li>Java JDK</li> <li>Android SDK</li> <li>Android NDK</li> <li>安装软件支持</li></ul> <div class="language- extra-class"><pre class="language-text"><code>$ sudo apt-get install libgtk2.0-dev pkg-config
+$ sudo apt-get install build-essential
+$ sudo apt-get install cmake
+</code></pre></div><h3 id="opencv-for-android-初体验"><a href="#opencv-for-android-初体验" class="header-anchor">#</a> OpenCV for Android 初体验</h3> <h4 id="引入opencv-library"><a href="#引入opencv-library" class="header-anchor">#</a> 引入OpenCV Library</h4> <p>注:可能会报错，添加Android API后恢复正常</p> <h4 id="grayprocess"><a href="#grayprocess" class="header-anchor">#</a> GrayProcess</h4> <p>资源文件：strings.xml</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;GrayProcess&lt;/string&gt;
+    &lt;string name=&quot;hello_world&quot;&gt;Hello world!&lt;/string&gt;
+    &lt;string name=&quot;menu_settings&quot;&gt;Settings&lt;/string&gt;
+    &lt;string name=&quot;title_activity_main&quot;&gt;MainActivity&lt;/string&gt;
+    &lt;string name=&quot;str_proc&quot;&gt;gray process&lt;/string&gt;
+    &lt;string name=&quot;str_desc&quot;&gt;image description&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre></div><p>布局文件：main.xml</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; &gt;
+    
+    &lt;Button 
+        android:id=&quot;@+id/btn_gray_process&quot;
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;@string/str_proc&quot;/&gt;
+    
+    &lt;ImageView
+        android:id=&quot;@+id/image_view&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@string/str_proc&quot;/&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre></div><p>Class文件:MainActivity.java</p> <div class="language- extra-class"><pre class="language-text"><code>package com.iron.grayprocess;
+
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Bitmap.Config;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class MainActivity extends Activity implements OnClickListener{
+
+    private Button btnProc;
+	private ImageView imageView;
+	private Bitmap bmp;
+	
+	//OpenCV类库加载并初始化成功后的回调函数，在此我们不进行任何操作
+	private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS:{
+                } break;
+                default:{
+                    super.onManagerConnected(status);
+                } break;
+            }
+        }
+    };
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        btnProc = (Button) findViewById(R.id.btn_gray_process);
+        imageView = (ImageView) findViewById(R.id.image_view);
+        //将lena图像加载程序中并进行显示
+        bmp = BitmapFactory.decodeResource(getResources(), R.drawable.lena);
+        imageView.setImageBitmap(bmp);
+        btnProc.setOnClickListener(this);
+    }
+
+	@Override
+	public void onClick(View v) {
+		Mat rgbMat = new Mat();
+		Mat grayMat = new Mat();
+		//获取lena彩色图像所对应的像素数据
+		Utils.bitmapToMat(bmp, rgbMat);
+		//将彩色图像数据转换为灰度图像数据并存储到grayMat中
+		Imgproc.cvtColor(rgbMat, grayMat, Imgproc.COLOR_RGB2GRAY);
+		//创建一个灰度图像
+		Bitmap grayBmp = Bitmap.createBitmap(bmp.getWidth(), bmp.getHeight(), Config.RGB_565);
+		//将矩阵grayMat转换为灰度图像
+		Utils.matToBitmap(grayMat, grayBmp);
+		imageView.setImageBitmap(grayBmp);
+	}
+	
+	@Override
+    public void onResume(){
+        super.onResume();
+        //通过OpenCV引擎服务加载并初始化OpenCV类库，所谓OpenCV引擎服务即是
+        //OpenCV_2.4.3.2_Manager_2.4_*.apk程序包，存在于OpenCV安装包的apk目录中
+        //这里的OPENCV_VERSION_2_4_3根据库版本来填写
+        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_3, this, mLoaderCallback);
+    }
+}
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leixwang/docs/edit/master/docs/markdown/tools/OpenCV.md" target="_blank" rel="noopener noreferrer">帮助我们改进页面内容！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/25/2019, 5:45:56 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6366756d.js" defer></script><script src="/assets/js/2.92557040.js" defer></script><script src="/assets/js/46.bdb7780e.js" defer></script>
+  </body>
+</html>

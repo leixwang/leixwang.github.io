@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>conter install mysql 8.0 | Leix Wang</title>
+    <meta name="description" content="多年的笔记文档整理.">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.206f5dc1.css" as="style"><link rel="preload" href="/assets/js/app.6366756d.js" as="script"><link rel="preload" href="/assets/js/2.92557040.js" as="script"><link rel="preload" href="/assets/js/30.007351db.js" as="script"><link rel="prefetch" href="/assets/js/10.0f5638bb.js"><link rel="prefetch" href="/assets/js/11.a71ff745.js"><link rel="prefetch" href="/assets/js/12.a0ab6518.js"><link rel="prefetch" href="/assets/js/13.aca761e5.js"><link rel="prefetch" href="/assets/js/14.5ee8065b.js"><link rel="prefetch" href="/assets/js/15.82d1b2a2.js"><link rel="prefetch" href="/assets/js/16.5ebe1d67.js"><link rel="prefetch" href="/assets/js/17.f5c5f6c5.js"><link rel="prefetch" href="/assets/js/18.d899bd13.js"><link rel="prefetch" href="/assets/js/19.2f61c920.js"><link rel="prefetch" href="/assets/js/20.15f0b97a.js"><link rel="prefetch" href="/assets/js/21.3a7c68ff.js"><link rel="prefetch" href="/assets/js/22.2774cc27.js"><link rel="prefetch" href="/assets/js/23.cd16d512.js"><link rel="prefetch" href="/assets/js/24.901fec5b.js"><link rel="prefetch" href="/assets/js/25.fc275a06.js"><link rel="prefetch" href="/assets/js/26.ea2c18f9.js"><link rel="prefetch" href="/assets/js/27.89bb00ed.js"><link rel="prefetch" href="/assets/js/28.993d7711.js"><link rel="prefetch" href="/assets/js/29.23169a7c.js"><link rel="prefetch" href="/assets/js/3.6abc298a.js"><link rel="prefetch" href="/assets/js/31.944b2b29.js"><link rel="prefetch" href="/assets/js/32.840fab8a.js"><link rel="prefetch" href="/assets/js/33.7b1e44ad.js"><link rel="prefetch" href="/assets/js/34.444dcd6a.js"><link rel="prefetch" href="/assets/js/35.25a3a982.js"><link rel="prefetch" href="/assets/js/36.e0492998.js"><link rel="prefetch" href="/assets/js/37.cea9889b.js"><link rel="prefetch" href="/assets/js/38.c83bc71f.js"><link rel="prefetch" href="/assets/js/39.6f333022.js"><link rel="prefetch" href="/assets/js/4.3ff2fe10.js"><link rel="prefetch" href="/assets/js/40.531bab97.js"><link rel="prefetch" href="/assets/js/41.18bc33d4.js"><link rel="prefetch" href="/assets/js/42.9902aa75.js"><link rel="prefetch" href="/assets/js/43.df9fdfb8.js"><link rel="prefetch" href="/assets/js/44.b6c777c0.js"><link rel="prefetch" href="/assets/js/45.6df5fdf7.js"><link rel="prefetch" href="/assets/js/46.bdb7780e.js"><link rel="prefetch" href="/assets/js/47.7b7f2046.js"><link rel="prefetch" href="/assets/js/48.8ccabaeb.js"><link rel="prefetch" href="/assets/js/49.13e5f339.js"><link rel="prefetch" href="/assets/js/5.5271a1ba.js"><link rel="prefetch" href="/assets/js/50.7d905fe9.js"><link rel="prefetch" href="/assets/js/51.99dbc8f3.js"><link rel="prefetch" href="/assets/js/52.be7dc0ce.js"><link rel="prefetch" href="/assets/js/53.4569311f.js"><link rel="prefetch" href="/assets/js/54.a3139ac5.js"><link rel="prefetch" href="/assets/js/55.7b1cd4c2.js"><link rel="prefetch" href="/assets/js/56.14c69e56.js"><link rel="prefetch" href="/assets/js/57.05a829ab.js"><link rel="prefetch" href="/assets/js/6.c42490f5.js"><link rel="prefetch" href="/assets/js/7.b8ff2a4d.js"><link rel="prefetch" href="/assets/js/8.cfaa9397.js"><link rel="prefetch" href="/assets/js/9.32ffd1ad.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.206f5dc1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Leix Wang</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/markdown/" class="nav-link router-link-active">MarkDown</a></div> <a href="https://github.com/leixwang/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/markdown/" class="nav-link router-link-active">MarkDown</a></div> <a href="https://github.com/leixwang/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue </span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React </span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>服务器配置文档</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/markdown/server/centos.html" class="sidebar-link">redis install</a></li><li><a href="/markdown/server/conter-mysql.html" class="active sidebar-link">conter install mysql 8.0</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#获取源" class="sidebar-link">获取源</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#安装命令" class="sidebar-link">安装命令</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#启动mysql" class="sidebar-link">启动mysql</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#查看临时密码" class="sidebar-link">查看临时密码</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#config-mysql" class="sidebar-link">config mysql</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#本地连接数据库" class="sidebar-link">本地连接数据库</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#创建数据库和用户" class="sidebar-link">创建数据库和用户</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#修密码等级" class="sidebar-link">修密码等级</a></li><li class="sidebar-sub-header"><a href="/markdown/server/conter-mysql.html#开启远程连数据库" class="sidebar-link">开启远程连数据库</a></li></ul></li><li><a href="/markdown/server/install-ubuntu.html" class="sidebar-link">U盘安装ubuntu教程</a></li><li><a href="/markdown/server/mac-osx.html" class="sidebar-link">Mac os X 系统中一些常用软件的配置</a></li><li><a href="/markdown/server/meteor.html" class="sidebar-link">Meteor 命令的操作</a></li><li><a href="/markdown/server/mongodb.html" class="sidebar-link">1.本地数据库备份与恢复</a></li><li><a href="/markdown/server/nodejs.html" class="sidebar-link">nodejs安装</a></li><li><a href="/markdown/server/redis.html" class="sidebar-link">Redis简介</a></li><li><a href="/markdown/server/sh.html" class="sidebar-link">Ubuntu 16.04下Shadowsocks服务器端安装及优化</a></li><li><a href="/markdown/server/shadowsocket.html" class="sidebar-link">center os install BBR</a></li><li><a href="/markdown/server/ubuntu-command.html" class="sidebar-link">kvmla 配置</a></li><li><a href="/markdown/server/Ubuntu-install-ReactNative-env.html" class="sidebar-link">/markdown/server/Ubuntu-install-ReactNative-env.html</a></li><li><a href="/markdown/server/Ubuntu-Server-Wi-Fi.html" class="sidebar-link">/markdown/server/Ubuntu-Server-Wi-Fi.html</a></li><li><a href="/markdown/server/pptpconfig.html" class="sidebar-link">/markdown/server/pptpconfig.html</a></li><li><a href="/markdown/server/jenkins.html" class="sidebar-link">/markdown/server/jenkins.html</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>免费电子书</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WEB 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>RAG.JS 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ETH DAPP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Matrix-synapse</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Open SIP 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>管理学</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="conter-install-mysql-8-0"><a href="#conter-install-mysql-8-0" class="header-anchor">#</a> conter install mysql 8.0</h1> <h2 id="获取源"><a href="#获取源" class="header-anchor">#</a> 获取源</h2> <div class="language-sh extra-class"><pre class="language-sh"><code>yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+<span class="token function">rpm</span> -Uvh https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+</code></pre></div><h2 id="安装命令"><a href="#安装命令" class="header-anchor">#</a> 安装命令</h2> <p>安装mysql8.0</p> <div class="language-sh extra-class"><pre class="language-sh"><code>yum <span class="token function">install</span> mysql-community-server
+</code></pre></div><h2 id="启动mysql"><a href="#启动mysql" class="header-anchor">#</a> 启动mysql</h2> <p>启动mysql和加入系统自动启动mysql</p> <div class="language-sh extra-class"><pre class="language-sh"><code>systemctl start mysqld.service       <span class="token comment">## use restart after update</span>
+systemctl <span class="token builtin class-name">enable</span> mysqld.service
+</code></pre></div><h2 id="查看临时密码"><a href="#查看临时密码" class="header-anchor">#</a> 查看临时密码</h2> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">grep</span> <span class="token string">'A temporary password is generated for root@localhost'</span> /var/log/mysqld.log <span class="token operator">|</span><span class="token function">tail</span> -1
+</code></pre></div><h2 id="config-mysql"><a href="#config-mysql" class="header-anchor">#</a> config mysql</h2> <div class="language- extra-class"><pre class="language-text"><code>/usr/bin/mysql_secure_installation
+</code></pre></div><p>output:</p> <div class="language- extra-class"><pre class="language-text"><code>Securing the MySQL server deployment.
+
+Enter password for user root: 
+
+The existing password for the user account root has expired. Please set a new password.
+
+New password: 
+
+Re-enter new password: 
+
+VALIDATE PASSWORD PLUGIN can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD plugin?
+
+Press y|Y for Yes, any other key for No: y
+
+There are three levels of password validation policy:
+
+LOW    Length &gt;= 8
+MEDIUM Length &gt;= 8, numeric, mixed case, and special characters
+STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 0
+Using existing password for root.
+
+Estimated strength of the password: 100 
+Change the password for root ? ((Press y|Y for Yes, any other key for No) : y
+
+New password: 
+
+Re-enter new password: 
+
+Estimated strength of the password: 50 
+Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : y
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y
+ - Dropping test database...
+Success.
+
+ - Removing privileges on test database...
+Success.
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+All done! 
+</code></pre></div><h2 id="本地连接数据库"><a href="#本地连接数据库" class="header-anchor">#</a> 本地连接数据库</h2> <div class="language- extra-class"><pre class="language-text"><code>mysql -u root -p
+
+## OR ##
+mysql -h localhost -u root -p
+</code></pre></div><h2 id="创建数据库和用户"><a href="#创建数据库和用户" class="header-anchor">#</a> 创建数据库和用户</h2> <ul><li>DB_NAME = webdb</li> <li>USER_NAME = webdb_user</li> <li>REMOTE_IP = 10.0.15.25</li> <li>PASSWORD = password123</li> <li>PERMISSIONS = ALL</li></ul> <div class="language-mysql extra-class"><pre class="language-text"><code>## CREATE DATABASE ##
+mysql&gt; CREATE DATABASE webdb;
+
+## CREATE USER ##
+mysql&gt; CREATE USER 'webdb_user'@'10.0.15.25' IDENTIFIED BY 'password123';
+
+## GRANT PERMISSIONS ##
+mysql&gt; GRANT ALL ON webdb.* TO 'webdb_user'@'10.0.15.25';
+
+##  FLUSH PRIVILEGES, Tell the server to reload the grant tables  ##
+mysql&gt; FLUSH PRIVILEGES;
+</code></pre></div><h2 id="修密码等级"><a href="#修密码等级" class="header-anchor">#</a> 修密码等级</h2> <p>如果设置出现 <code>ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</code> 错误信息, 是因为密码的等级设置过高, 需要将安全等降低或是重新用随机软件生成密码.</p> <div class="language-mysql extra-class"><pre class="language-text"><code>
+## 查看密码安全等级
+mysql&gt; set global validate_password.policy=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password.check_user_name    | ON    |
+| validate_password.dictionary_file    |       |
+| validate_password.length             | 8     |
+| validate_password.mixed_case_count   | 1     |
+| validate_password.number_count       | 1     |
+| validate_password.policy             | LOW   |
+| validate_password.special_char_count | 1     |
++--------------------------------------+-------+
+14 rows in set (0.00 sec)
+
+## 创建新用户
+mysql&gt; create user 'user'@'%' identified by 'abcd1234';
+Query OK, 0 rows affected (0.08 sec)
+
+</code></pre></div><h2 id="开启远程连数据库"><a href="#开启远程连数据库" class="header-anchor">#</a> 开启远程连数据库</h2> <h3 id="_1-fedora-28-27-26-and-centos-red-hat-rhel-7-5"><a href="#_1-fedora-28-27-26-and-centos-red-hat-rhel-7-5" class="header-anchor">#</a> 1. Fedora 28/27/26 and CentOS/Red Hat (RHEL) 7.5</h3> <p>1.1 Add New Rule to Firewalld</p> <div class="language- extra-class"><pre class="language-text"><code>firewall-cmd --permanent --zone=public --add-service=mysql
+## OR ##
+firewall-cmd --permanent --zone=public --add-port=3306/tcp
+</code></pre></div><p>1.2 Restart firewalld.service</p> <div class="language- extra-class"><pre class="language-text"><code>systemctl restart firewalld.service
+</code></pre></div><h3 id="_2-centos-red-hat-rhel-6-9"><a href="#_2-centos-red-hat-rhel-6-9" class="header-anchor">#</a> 2. CentOS/Red Hat (RHEL) 6.9</h3> <p>2.1 Edit /etc/sysconfig/iptables file:</p> <div class="language- extra-class"><pre class="language-text"><code>nano -w /etc/sysconfig/iptables
+</code></pre></div><p>2.2 Add following INPUT rule:</p> <div class="language- extra-class"><pre class="language-text"><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+</code></pre></div><p>2.3 Restart Iptables Firewall:</p> <div class="language- extra-class"><pre class="language-text"><code>service iptables restart
+## OR ##
+/etc/init.d/iptables restart
+</code></pre></div><h3 id="_3-test-remote-connection"><a href="#_3-test-remote-connection" class="header-anchor">#</a> 3. Test remote connection</h3> <div class="language- extra-class"><pre class="language-text"><code>mysql -h 10.0.15.25 -u myusername -p
+</code></pre></div><p>Posted in Featured, Linux, Servers, SQL
+Tagged CentOS, Fedora, MySQL, Oracle, Red Hat, RHEL, Scientific Linux</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leixwang/docs/edit/master/docs/markdown/server/conter-mysql.md" target="_blank" rel="noopener noreferrer">帮助我们改进页面内容！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/25/2019, 5:45:56 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/markdown/server/centos.html" class="prev">redis install</a></span> <span class="next"><a href="/markdown/server/install-ubuntu.html">U盘安装ubuntu教程</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6366756d.js" defer></script><script src="/assets/js/2.92557040.js" defer></script><script src="/assets/js/30.007351db.js" defer></script>
+  </body>
+</html>
