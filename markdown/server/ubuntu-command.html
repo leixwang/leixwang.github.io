@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kvmla 配置 | Leix Wang</title>
+    <meta name="description" content="多年的笔记文档整理.">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.206f5dc1.css" as="style"><link rel="preload" href="/assets/js/app.3206da67.js" as="script"><link rel="preload" href="/assets/js/2.c2faec64.js" as="script"><link rel="preload" href="/assets/js/44.3f020885.js" as="script"><link rel="prefetch" href="/assets/js/10.786201aa.js"><link rel="prefetch" href="/assets/js/11.209c33b3.js"><link rel="prefetch" href="/assets/js/12.3db786cf.js"><link rel="prefetch" href="/assets/js/13.d3df0c4b.js"><link rel="prefetch" href="/assets/js/14.f0da4c3b.js"><link rel="prefetch" href="/assets/js/15.908ef041.js"><link rel="prefetch" href="/assets/js/16.4d017a65.js"><link rel="prefetch" href="/assets/js/17.c50987ba.js"><link rel="prefetch" href="/assets/js/18.46d419f3.js"><link rel="prefetch" href="/assets/js/19.9e74fc2f.js"><link rel="prefetch" href="/assets/js/20.3f809470.js"><link rel="prefetch" href="/assets/js/21.4fc69f68.js"><link rel="prefetch" href="/assets/js/22.50dea1a1.js"><link rel="prefetch" href="/assets/js/23.eeae4321.js"><link rel="prefetch" href="/assets/js/24.ff7cf1e7.js"><link rel="prefetch" href="/assets/js/25.1dd4f458.js"><link rel="prefetch" href="/assets/js/26.994094b3.js"><link rel="prefetch" href="/assets/js/27.9384b8fd.js"><link rel="prefetch" href="/assets/js/28.709663fa.js"><link rel="prefetch" href="/assets/js/29.f7c8614e.js"><link rel="prefetch" href="/assets/js/3.370fa40e.js"><link rel="prefetch" href="/assets/js/30.256c12fd.js"><link rel="prefetch" href="/assets/js/31.1cabb903.js"><link rel="prefetch" href="/assets/js/32.9d11819e.js"><link rel="prefetch" href="/assets/js/33.86399822.js"><link rel="prefetch" href="/assets/js/34.97cafb23.js"><link rel="prefetch" href="/assets/js/35.85113a14.js"><link rel="prefetch" href="/assets/js/36.b3f70c6c.js"><link rel="prefetch" href="/assets/js/37.925c5d7b.js"><link rel="prefetch" href="/assets/js/38.3664728d.js"><link rel="prefetch" href="/assets/js/39.700d3adf.js"><link rel="prefetch" href="/assets/js/4.3ff2fe10.js"><link rel="prefetch" href="/assets/js/40.93707321.js"><link rel="prefetch" href="/assets/js/41.c97f1d37.js"><link rel="prefetch" href="/assets/js/42.ed768179.js"><link rel="prefetch" href="/assets/js/43.cdc2fe61.js"><link rel="prefetch" href="/assets/js/45.518715c6.js"><link rel="prefetch" href="/assets/js/46.daa15294.js"><link rel="prefetch" href="/assets/js/47.0b883e47.js"><link rel="prefetch" href="/assets/js/48.93b7baf6.js"><link rel="prefetch" href="/assets/js/49.67067c42.js"><link rel="prefetch" href="/assets/js/5.f98902d6.js"><link rel="prefetch" href="/assets/js/50.3320701d.js"><link rel="prefetch" href="/assets/js/51.0b553026.js"><link rel="prefetch" href="/assets/js/52.057a602c.js"><link rel="prefetch" href="/assets/js/53.c7f504fe.js"><link rel="prefetch" href="/assets/js/54.aae21f3e.js"><link rel="prefetch" href="/assets/js/55.13e3bc91.js"><link rel="prefetch" href="/assets/js/56.e6ca94d3.js"><link rel="prefetch" href="/assets/js/57.03bc23b4.js"><link rel="prefetch" href="/assets/js/58.3b06c45d.js"><link rel="prefetch" href="/assets/js/59.e9dc7e49.js"><link rel="prefetch" href="/assets/js/6.d3f89367.js"><link rel="prefetch" href="/assets/js/60.92a0b71a.js"><link rel="prefetch" href="/assets/js/61.a49a3d8f.js"><link rel="prefetch" href="/assets/js/7.4726c3dd.js"><link rel="prefetch" href="/assets/js/8.e45ae100.js"><link rel="prefetch" href="/assets/js/9.c83a160a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.206f5dc1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Leix Wang</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/markdown/" class="nav-link router-link-active">MarkDown</a></div> <a href="https://github.com/leixwang/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/markdown/" class="nav-link router-link-active">MarkDown</a></div> <a href="https://github.com/leixwang/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue </span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React </span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>服务器配置文档</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/markdown/server/centos.html" class="sidebar-link">Redis install</a></li><li><a href="/markdown/server/conter-mysql.html" class="sidebar-link">CentOS install mysql 8.0</a></li><li><a href="/markdown/server/install-ubuntu.html" class="sidebar-link">U盘安装ubuntu教程</a></li><li><a href="/markdown/server/mac-osx.html" class="sidebar-link">Mac os X 系统中一些常用软件的配置</a></li><li><a href="/markdown/server/meteor.html" class="sidebar-link">Meteor 命令的操作</a></li><li><a href="/markdown/server/mongodb.html" class="sidebar-link">1.本地数据库备份与恢复</a></li><li><a href="/markdown/server/nodejs.html" class="sidebar-link">nodejs安装</a></li><li><a href="/markdown/server/redis.html" class="sidebar-link">Redis简介</a></li><li><a href="/markdown/server/sh.html" class="sidebar-link">Ubuntu 16.04下Shadowsocks服务器端安装及优化</a></li><li><a href="/markdown/server/shadowsocket.html" class="sidebar-link">center os install BBR</a></li><li><a href="/markdown/server/ubuntu-command.html" class="active sidebar-link">kvmla 配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/markdown/server/ubuntu-command.html#安装shadowsocks" class="sidebar-link">安装ShadowSocks</a></li><li class="sidebar-sub-header"><a href="/markdown/server/ubuntu-command.html#语言设置" class="sidebar-link">语言设置</a></li><li class="sidebar-sub-header"><a href="/markdown/server/ubuntu-command.html#开发机配置" class="sidebar-link">开发机配置</a></li><li class="sidebar-sub-header"><a href="/markdown/server/ubuntu-command.html#在手机上调试" class="sidebar-link">在手机上调试</a></li><li class="sidebar-sub-header"><a href="/markdown/server/ubuntu-command.html#调试微信支付" class="sidebar-link">调试微信支付</a></li><li class="sidebar-sub-header"><a href="/markdown/server/ubuntu-command.html#调试公众号消息接口" class="sidebar-link">调试公众号消息接口</a></li></ul></li><li><a href="/markdown/server/Ubuntu-install-ReactNative-env.html" class="sidebar-link">/markdown/server/Ubuntu-install-ReactNative-env.html</a></li><li><a href="/markdown/server/Ubuntu-Server-Wi-Fi.html" class="sidebar-link">/markdown/server/Ubuntu-Server-Wi-Fi.html</a></li><li><a href="/markdown/server/pptpconfig.html" class="sidebar-link">/markdown/server/pptpconfig.html</a></li><li><a href="/markdown/server/jenkins.html" class="sidebar-link">/markdown/server/jenkins.html</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>免费电子书</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux 驱动开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WEB 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>RAG.JS 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ETH DAPP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Matrix-synapse</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Open SIP 文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>管理学</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用的工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>大数据分析</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="kvmla-配置"><a href="#kvmla-配置" class="header-anchor">#</a> kvmla 配置</h1> <p>web : meteor user
+ritter : build user</p> <h3 id="创建一个sudo用户"><a href="#创建一个sudo用户" class="header-anchor">#</a> 创建一个sudo用户</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># adduser 'ritter'</span>
+<span class="token comment"># adduser ritter sudo </span>
+<span class="token comment"># adduser ritter root</span>
+<span class="token comment"># adduser ritter ssh</span>
+</code></pre></div><h3 id="重新指定语言"><a href="#重新指定语言" class="header-anchor">#</a> 重新指定语言</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> localepurge
+$ <span class="token function">sudo</span> locale-gen en_US.UTF-8 zh_CN.UTF-8
+$ locale    //查看本地语言
+</code></pre></div><h3 id="自动补齐"><a href="#自动补齐" class="header-anchor">#</a> 自动补齐</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> bash-completion
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> --reinstall bash-completion
+$ <span class="token function">cp</span> /etc/skel/.bashrc ~/
+$ <span class="token builtin class-name">.</span> ~/.bashrc
+</code></pre></div><h3 id="安装fish"><a href="#安装fish" class="header-anchor">#</a> 安装fish</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">sudo</span> <span class="token function">install</span> fish
+$ fish
+</code></pre></div><h3 id="update"><a href="#update" class="header-anchor">#</a> update</h3> <div class="language- extra-class"><pre class="language-text"><code>$ sudo apt-get update
+E: The method driver /usr/lib/apt/methods/http could not be found.
+</code></pre></div><p>Fixed:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> apt-transport-https
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> update
+</code></pre></div><h3 id="将程序放到后台运行"><a href="#将程序放到后台运行" class="header-anchor">#</a> 将程序放到后台运行</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">nohup</span> meteor <span class="token operator">&amp;</span>
+</code></pre></div><h2 id="安装shadowsocks"><a href="#安装shadowsocks" class="header-anchor">#</a> 安装ShadowSocks</h2> <p>简介<code>Shadowsocks</code>安装配置过程。</p> <h3 id="ubuntu-安装方法"><a href="#ubuntu-安装方法" class="header-anchor">#</a> ubuntu 安装方法</h3> <div class="language- extra-class"><pre class="language-text"><code> $ sudo apt-get update 
+ $ sudo apt-get install python-pip
+ $ sudo apt-get shadowsocks
+</code></pre></div><h3 id="配置文件"><a href="#配置文件" class="header-anchor">#</a> 配置文件</h3> <p>需要在<code>/etc/</code>目录下创建一个<code>shadowsocks.json</code>的文件, 配置文件内容如下:</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;server&quot;:&quot;my_server_ip&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;mypassword&quot;,
+    &quot;timeout&quot;:300,
+    &quot;method&quot;:&quot;rc4-md5&quot;
+}
+</code></pre></div><p>各字段的含义：</p> <table><thead><tr><th style="text-align:left;">name</th> <th style="text-align:center;">info</th></tr></thead> <tbody><tr><td style="text-align:left;">server</td> <td style="text-align:center;">服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址</td></tr> <tr><td style="text-align:left;">server_port</td> <td style="text-align:center;">服务器端口</td></tr> <tr><td style="text-align:left;">local_port</td> <td style="text-align:center;">本地端端口</td></tr> <tr><td style="text-align:left;">password</td> <td style="text-align:center;">用来加密的密码</td></tr> <tr><td style="text-align:left;">timeout</td> <td style="text-align:center;">超时时间（秒）</td></tr> <tr><td style="text-align:left;">method</td> <td style="text-align:center;">加密方法，&quot;rc4-md5&quot;</td></tr></tbody></table> <h3 id="运行方法"><a href="#运行方法" class="header-anchor">#</a> 运行方法</h3> <p>如果想直接在命令行下运行, 如果要停止运行，将命令中的start改成stop。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sudo ssserver -c /etc/shadowsocks.json -d start
+</code></pre></div><h3 id="配置开机自启动"><a href="#配置开机自启动" class="header-anchor">#</a> 配置开机自启动</h3> <div class="language- extra-class"><pre class="language-text"><code>$ sudo chmod 755 /etc/shadowsocks.json
+$ sudo apt–get install python–m2crypto   //安装支持算法的库
+</code></pre></div><p>需要将启动项增加到, 启动文件中.</p> <div class="language- extra-class"><pre class="language-text"><code>$ sudo vi /etc/rc.local
+
+/usr/local/bin/ssserver –c /etc/shadowsocks.json
+</code></pre></div><h1 id="ubuntu-config"><a href="#ubuntu-config" class="header-anchor">#</a> Ubuntu config</h1> <h2 id="语言设置"><a href="#语言设置" class="header-anchor">#</a> 语言设置</h2> <p>如果没有设置好语言启动不了<code>meteor</code>, 会显示<code>mongoDB</code>服务启动失败.</p> <p>解决方法如下:</p> <div class="language- extra-class"><pre class="language-text"><code>$ sudo apt-get install locales
+$ sudo locale-gen en_US.UTF-8
+$ sudo localedef -i en_GB -f UTF-8 en_US.UTF-8 
+</code></pre></div><h1 id="http-转-https-服务器配置"><a href="#http-转-https-服务器配置" class="header-anchor">#</a> http 转 https 服务器配置</h1> <h2 id="开发机配置"><a href="#开发机配置" class="header-anchor">#</a> 开发机配置</h2> <p>修改/etc/hosts，加上：</p> <div class="language- extra-class"><pre class="language-text"><code>127.0.0.1 dev.badui.com
+</code></pre></div><h4 id="推荐一个频繁切换hosts的小工具-switchhosts"><a href="#推荐一个频繁切换hosts的小工具-switchhosts" class="header-anchor">#</a> 推荐一个频繁切换hosts的小工具[<a href="http://oldj.github.io/SwitchHosts/" target="_blank" rel="noopener noreferrer">SwitchHosts<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>]</h4> <p><img src="https://cloud.githubusercontent.com/assets/4111893/26032565/0e388dd2-38c9-11e7-8230-c595534dec95.png" alt=""></p> <hr> <p>在本地安装nginx，配置文件加上：</p> <div class="language- extra-class"><pre class="language-text"><code>map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+server {
+	server_name dev.badui.com;
+	listen 80;
+	return 301 https://$host$request_uri;
+}
+server {
+	server_name dev.badui.com;
+	listen 443 ssl;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_ciphers 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS';
+	ssl_prefer_server_ciphers on;
+	ssl_session_timeout 5m;
+	ssl_session_cache shared:SSL:50m;
+	ssl_session_tickets off;
+	ssl_certificate cert/xxx.pem;
+	ssl_certificate_key cert/xxx.key;
+	add_header Strict-Transport-Security &quot;max-age=31536000&quot;;
+	location / {
+		proxy_pass http://127.0.0.1:3000;
+        	proxy_http_version 1.1;
+        	proxy_set_header   Upgrade          $http_upgrade;
+        	proxy_set_header   Connection       $connection_upgrade;
+
+        	proxy_set_header   Host             $host;
+        	proxy_set_header   X-Real-IP        $remote_addr;
+        	proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        	proxy_set_header   X-Forwarded-Proto $scheme;
+
+        	proxy_buffering off;
+        	proxy_buffer_size  128k;
+        	proxy_buffers   32 32k;
+        	proxy_busy_buffers_size 128k;
+        	proxy_connect_timeout 1200s;
+        	proxy_read_timeout 1200s;
+        	proxy_send_timeout 1200s;
+        	proxy_redirect off;
+        	proxy_next_upstream error timeout invalid_header http_500 http_503 http_404;
+        	expires 1d;
+	}
+}
+</code></pre></div><p>如果你发现证书过期了，去服务器上取一个最新的证书，顺便帮忙更新一下本文。</p> <p>用devlive的配置，在默认的3000端口启动meteor:</p> <div class="language- extra-class"><pre class="language-text"><code>ROOT_URL=https://dev.badui.com meteor --settings .deploy/dev/settings-dev.json
+</code></pre></div><p>在微信web开发者工具中可以通过公众号网页授权登录前台页面 https://dev.badui.com</p> <p>在Chrome中可以通过微信扫码登录前台 https://dev.badui.com 或后台 https://dev.badui.com/admin</p> <h2 id="在手机上调试"><a href="#在手机上调试" class="header-anchor">#</a> 在手机上调试</h2> <p>手机要改hosts需要越狱，要拿开发机做proxy也经常不灵。所以最省事的办法是配置一台无线路由器，让开发机和手机都通过这个无线路由器上网。在路由器上改域名解析，比如极路由可以装一个插件叫“自定义hosts”，在里面加一条“192.168.199.101    dev.badui.com”即可。</p> <h2 id="调试微信支付"><a href="#调试微信支付" class="header-anchor">#</a> 调试微信支付</h2> <p>除了设置上述手机调试步骤之外，微信支付的统一下单接口有个notify_url参数，是异步接收微信支付结果通知的回调地址，由于回调地址必须为外网可访问的url，可以用ngrok做一个tunnel，notify_url参数填ngrok生成的url，这样本地程序就能接收到回调的通知了。注意在提交代码时把notify_url改回服务器的地址，比如 https://dev.badui.com/pay-cb 。</p> <h2 id="调试公众号消息接口"><a href="#调试公众号消息接口" class="header-anchor">#</a> 调试公众号消息接口</h2> <p>这个就复杂了。公众号消息高度依赖回调，而且回调地址是在公众号后台填写的，必须是已备案的域名，而ngrok生成的域名没法备案，所以就行不通了。有一个办法是在服务器上自己做这个tunnel，这样就可以用服务器的已备案域名来接收回调并tunnel到本地（参考
+https://blog.rodneyrehm.de/archives/38-You-may-not-need-localtunnel-or-ngrok.html ）。但这样调试必然影响公众号的正常服务，所以只能在测试用的公众号上做。</p> <p>Ubuntu 16.04下Shadowsocks服务器端安装及优化
+2017-06-13   47716   其他   shadowsocks, bbr, systemd   84
+前言
+本教程旨在提供简明的Ubuntu 16.04下安装服务器端Shadowsocks。不同于Ubuntu 16.04之前的教程，本文抛弃initd，转而使用Ubuntu 16.04支持的Systemd管理Shadowsocks的启动与停止，显得更为便捷。优化部分包括BBR、TCP Fast Open以及吞吐量优化。</p> <p>本教程仅适用于Ubuntu 16.04及之后的版本，基于Python 3，支持IPv6。</p> <p>安装pip
+本教程使用Python 3为载体，因Python 3对应的包管理器pip3并未预装，首先安装pip3：</p> <p>Bash
+sudo apt install python3-pip
+安装Shadowsocks
+因Shadowsocks作者不再维护pip中的Shadowsocks（定格在了2.8.2），我们使用下面的命令来安装最新版的Shadowsocks：</p> <p>Bash
+pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+安装完成后可以使用下面这个命令查看Shadowsocks版本：</p> <p>Bash
+sudo ssserver --version
+目前会显示“Shadowsocks 3.0.0”。</p> <p>创建配置文件
+创建Shadowsocks配置文件所在文件夹：</p> <p>Bash
+sudo mkdir /etc/shadowsocks
+然后创建配置文件：</p> <p>Bash
+sudo nano /etc/shadowsocks/config.json
+复制粘贴如下内容（注意修改密码“password”）：</p> <p>JSON
+{
+&quot;server&quot;:&quot;::&quot;,
+&quot;server_port&quot;:8388,
+&quot;local_address&quot;: &quot;127.0.0.1&quot;,
+&quot;local_port&quot;:1080,
+&quot;password&quot;:&quot;mypassword&quot;,
+&quot;timeout&quot;:300,
+&quot;method&quot;:&quot;aes-256-cfb&quot;,
+&quot;fast_open&quot;: false
+}
+然后按Ctrl + O保存文件，Ctrl + X退出。</p> <p>测试Shadowsocks配置
+首先记录下服务器的IP地址</p> <p>Bash
+ifconfig
+找到IPv4地址（和IPv6地址），如我的ifconfig输出为</p> <p>eth0      Link encap:Ethernet  HWaddr 46:91:89:4e:c1:52
+inet addr:138.68.51.55  Bcast:138.68.63.255  Mask:255.255.240.0
+inet6 addr: fe80::4491:89ff:fe4e:c152/64 Scope:Link
+inet6 addr: 2604:a880:2:d0::3727:7001/64 Scope:Global
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+RX packets:102667 errors:0 dropped:0 overruns:0 frame:0
+TX packets:7869 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:151166937 (151.1 MB)  TX bytes:1151476 (1.1 MB)
+所以我的IPv4地址是138.68.51.55，IPv6地址是2604:a880:2:d0::3727:7001。</p> <p>然后来测试下Shadowsocks能不能正常工作了：</p> <p>Bash
+ssserver -c /etc/shadowsocks/config.json
+在Shadowsocks客户端添加服务器，如果你使用的是我提供的那个配置文件的话，地址填写你的IPv4地址或IPv6地址，端口号为8388，加密方法为aes-256-cfb，密码为你设置的密码。然后设置客户端使用全局模式，浏览器登录Google试试应该能直接打开了。</p> <p>这时浏览器登录http://ip138.com/就会显示Shadowsocks服务器的IP啦！</p> <p>测试完毕，按Ctrl + C关闭Shadowsocks。</p> <p>配置Systemd管理Shadowsocks
+新建Shadowsocks管理文件</p> <p>Bash
+sudo nano /etc/systemd/system/shadowsocks-server.service
+复制粘贴：</p> <p>[Unit]
+Description=Shadowsocks Server
+After=network.target</p> <p>[Service]
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
+Restart=on-abort</p> <p>[Install]
+WantedBy=multi-user.target
+Ctrl + O保存文件，Ctrl + X退出。</p> <p>启动Shadowsocks：</p> <p>Bash
+sudo systemctl start shadowsocks-server
+设置开机启动Shadowsocks：</p> <p>Bash
+sudo systemctl enable shadowsocks-server
+至此，Shadowsock服务器端的基本配置已经全部完成了！</p> <p>优化
+这部分属于进阶操作，在你使用Shadowsocks时感觉到延迟较大，或吞吐量较低时，可以考虑对服务器端进行优化。</p> <p>开启BBR
+BBR系Google最新开发的TCP拥塞控制算法，目前有着较好的带宽提升效果，甚至不比老牌的锐速差。</p> <p>升级Linux内核
+BBR在Linux kernel 4.9引入。首先检查服务器kernel版本：</p> <p>Bash
+uname -r
+如果其显示版本在4.9.0之下，则需要升级Linux内核，否则请忽略下文。</p> <p>更新包管理器：</p> <p>Bash
+sudo apt update
+查看可用的Linux内核版本：</p> <p>Bash
+sudo apt-cache showpkg linux-image
+找到一个你想要升级的Linux内核版本，如“linux-image-4.10.0-22-generic”：</p> <p>Bash
+sudo apt install linux-image-4.10.0-22-generic
+等待安装完成后重启服务器：</p> <p>Bash
+sudo reboot
+删除老的Linux内核：</p> <p>Bash
+sudo purge-old-kernels
+开启BBR
+运行lsmod | grep bbr，如果结果中没有tcp_bbr，则先运行：</p> <p>Bash
+modprobe tcp_bbr
+echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules-load.d/modules.conf
+运行：</p> <p>Bash
+echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
+运行：</p> <p>Bash
+sysctl -p
+保存生效。运行：</p> <p>Bash
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
+若均有bbr，则开启BBR成功。</p> <p>优化吞吐量
+新建配置文件：</p> <p>Bash
+sudo nano /etc/sysctl.d/local.conf
+复制粘贴：</p> <h1 id="max-open-files"><a href="#max-open-files" class="header-anchor">#</a> max open files</h1> <p>fs.file-max = 51200</p> <h1 id="max-read-buffer"><a href="#max-read-buffer" class="header-anchor">#</a> max read buffer</h1> <p>net.core.rmem_max = 67108864</p> <h1 id="max-write-buffer"><a href="#max-write-buffer" class="header-anchor">#</a> max write buffer</h1> <p>net.core.wmem_max = 67108864</p> <h1 id="default-read-buffer"><a href="#default-read-buffer" class="header-anchor">#</a> default read buffer</h1> <p>net.core.rmem_default = 65536</p> <h1 id="default-write-buffer"><a href="#default-write-buffer" class="header-anchor">#</a> default write buffer</h1> <p>net.core.wmem_default = 65536</p> <h1 id="max-processor-input-queue"><a href="#max-processor-input-queue" class="header-anchor">#</a> max processor input queue</h1> <p>net.core.netdev_max_backlog = 4096</p> <h1 id="max-backlog"><a href="#max-backlog" class="header-anchor">#</a> max backlog</h1> <p>net.core.somaxconn = 4096</p> <h1 id="resist-syn-flood-attacks"><a href="#resist-syn-flood-attacks" class="header-anchor">#</a> resist SYN flood attacks</h1> <p>net.ipv4.tcp_syncookies = 1</p> <h1 id="reuse-timewait-sockets-when-safe"><a href="#reuse-timewait-sockets-when-safe" class="header-anchor">#</a> reuse timewait sockets when safe</h1> <p>net.ipv4.tcp_tw_reuse = 1</p> <h1 id="turn-off-fast-timewait-sockets-recycling"><a href="#turn-off-fast-timewait-sockets-recycling" class="header-anchor">#</a> turn off fast timewait sockets recycling</h1> <p>net.ipv4.tcp_tw_recycle = 0</p> <h1 id="short-fin-timeout"><a href="#short-fin-timeout" class="header-anchor">#</a> short FIN timeout</h1> <p>net.ipv4.tcp_fin_timeout = 30</p> <h1 id="short-keepalive-time"><a href="#short-keepalive-time" class="header-anchor">#</a> short keepalive time</h1> <p>net.ipv4.tcp_keepalive_time = 1200</p> <h1 id="outbound-port-range"><a href="#outbound-port-range" class="header-anchor">#</a> outbound port range</h1> <p>net.ipv4.ip_local_port_range = 10000 65000</p> <h1 id="max-syn-backlog"><a href="#max-syn-backlog" class="header-anchor">#</a> max SYN backlog</h1> <p>net.ipv4.tcp_max_syn_backlog = 4096</p> <h1 id="max-timewait-sockets-held-by-system-simultaneously"><a href="#max-timewait-sockets-held-by-system-simultaneously" class="header-anchor">#</a> max timewait sockets held by system simultaneously</h1> <p>net.ipv4.tcp_max_tw_buckets = 5000</p> <h1 id="turn-on-tcp-fast-open-on-both-client-and-server-side"><a href="#turn-on-tcp-fast-open-on-both-client-and-server-side" class="header-anchor">#</a> turn on TCP Fast Open on both client and server side</h1> <p>net.ipv4.tcp_fastopen = 3</p> <h1 id="tcp-receive-buffer"><a href="#tcp-receive-buffer" class="header-anchor">#</a> TCP receive buffer</h1> <p>net.ipv4.tcp_rmem = 4096 87380 67108864</p> <h1 id="tcp-write-buffer"><a href="#tcp-write-buffer" class="header-anchor">#</a> TCP write buffer</h1> <p>net.ipv4.tcp_wmem = 4096 65536 67108864</p> <h1 id="turn-on-path-mtu-discovery"><a href="#turn-on-path-mtu-discovery" class="header-anchor">#</a> turn on path MTU discovery</h1> <p>net.ipv4.tcp_mtu_probing = 1</p> <p>net.ipv4.tcp_congestion_control = bbr
+运行：</p> <p>Bash
+sysctl --system
+编辑之前的shadowsocks-server.service文件：</p> <p>Bash
+sudo nano /etc/systemd/system/shadowsocks-server.service
+在ExecStart前插入一行，内容为：</p> <p>ExecStartPre=/bin/sh -c 'ulimit -n 51200'
+即修改后的shadowsocks-server.service内容为：</p> <p>[Unit]
+Description=Shadowsocks Server
+After=network.target</p> <p>[Service]
+ExecStartPre=/bin/sh -c 'ulimit -n 51200'
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
+Restart=on-abort</p> <p>[Install]
+WantedBy=multi-user.target
+Ctrl + O保存文件，Ctrl + X退出。</p> <p>重载shadowsocks-server.service：</p> <p>Bash
+sudo systemctl daemon-reload
+重启Shadowsocks：</p> <p>Bash
+sudo systemctl restart shadowsocks-server
+开启TCP Fast Open
+TCP Fast Open可以降低Shadowsocks服务器和客户端的延迟。实际上在上一步已经开启了TCP Fast Open，现在只需要在Shadowsocks配置中启用TCP Fast Open。</p> <p>编辑config.json：</p> <p>Bash
+sudo nano /etc/shadowsocks/config.json
+将fast_open的值由false修改为true。Ctrl + O保存文件，Ctrl + X退出。</p> <p>重启Shadowsocks：</p> <p>Bash
+sudo systemctl restart shadowsocks-server
+注意：TCP Fast Open同时需要客户端的支持，即客户端Linux内核版本为3.7.1及以上；你可以在Shadowsocks客户端中启用TCP Fast Open。</p> <p>至此，Shadowsock服务器端的优化已经全部完成了！</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leixwang/docs/edit/master/docs/markdown/server/ubuntu-command.md" target="_blank" rel="noopener noreferrer">帮助我们改进页面内容！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/25/2019, 5:45:56 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/markdown/server/shadowsocket.html" class="prev">center os install BBR</a></span> <span class="next"><a href="/markdown/server/Ubuntu-install-ReactNative-env.html">/markdown/server/Ubuntu-install-ReactNative-env.html</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3206da67.js" defer></script><script src="/assets/js/2.c2faec64.js" defer></script><script src="/assets/js/44.3f020885.js" defer></script>
+  </body>
+</html>
