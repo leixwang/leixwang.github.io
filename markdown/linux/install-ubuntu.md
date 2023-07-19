@@ -8,7 +8,7 @@ sidebar_position: 2
 ## Universal USB Installer下载并安装
 
 ![](/images/linux/inub001.jpg)
-![](/images/linuxinub002.jpg)
+![](/images/linux/inub002.jpg)
 
 
 ### 下载 ubuntu 桌面的镜像
