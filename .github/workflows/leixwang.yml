@@ -1,4 +1,4 @@
-name: Deploy vue.leix.wang website
+name: Deploy leix.wang website
 on:
   push:
     branches:
@@ -16,11 +16,11 @@ jobs:
         npm install
         npm run-script build
         cd ./markdown/.vitepress/dist
-        echo 'vue.leix.wang' > CNAME
+        echo 'leix.wang' > CNAME
         git init
-        git config user.name "Vue"
-        git config user.email "vue@leix.wang"
+        git config user.name "leix"
+        git config user.email "leix@leix.wang"
         git add -A
         git commit -m 'deploy'
-        git push -f https://leixwang:${{ secrets.BUILD_LEIXWEB }}@github.com/leixwang/vue.github.io.git master:gh-pages
+        git push -f https://leixwang:${{ secrets.BUILD_LEIXWEB }}@github.com/leixwang/leixwang.github.io.git master:gh-pages
         cd -

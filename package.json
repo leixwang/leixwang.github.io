@@ -1,8 +1,8 @@
 {
-  "name": "vue",
-  "version": "1.0.0",
+  "name": "Leix.wang",
+  "version": "1.2.0",
   "main": "index.js",
-  "repository": "git@github.com:leixwang/vue.github.io.git",
+  "repository": "git@github.com:leixwang/leixwang.github.io",
   "author": "Richard <richard@newborntown.com>",
   "license": "MIT",
   "scripts": {
