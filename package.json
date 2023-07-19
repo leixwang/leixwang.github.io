@@ -1,12 +1,12 @@
 {
-  "name": "Leix.wang",
+  "name": "leix.wang",
   "version": "1.2.0",
   "main": "index.js",
   "repository": "git@github.com:leixwang/leixwang.github.io",
   "author": "Richard <richard@newborntown.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vitepress dev markdown --port 6006",
+    "dev": "vitepress dev markdown --port 6006 --host 0.0.0.0",
     "build": "vitepress build markdown",
     "serve": "vitepress serve markdown"
   },
