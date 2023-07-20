@@ -26,7 +26,10 @@ export default withMermaid({
   port: 6006,
 	themeConfig: {
     nav: [
+      { text: 'Linux', link: '/linux/' },
+      { text: 'Markdown', link: '/tools/markdown' },
       { text: 'Golang', link: '/golang/' },
+      { text: 'Rust', link: '/rust/' },
     ],
 		sidebar: [
       {
@@ -81,6 +84,7 @@ export default withMermaid({
 				collapsible: true,
         collapsed: true,
         items: [
+          { text: 'Markdow使用文档', link: '/tools/markdown' },
           { text: 'github协作开发', link: '/tools/github' },
           { text: 'matrix通信服务框架', link: '/tools/matrix-synapse' },
           { text: 'kernel驱动开发', link: '/tools/driver' },

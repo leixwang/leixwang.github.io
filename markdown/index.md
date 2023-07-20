@@ -17,8 +17,14 @@ hero:
     #   link: https://github.com/vuejs/vitepress
 
 features:
+  - title: Linux 文档 
+    details: Linux 教程. Linux 是一种自由和开放源码的类UNIX 操作系统。 Linux 英文解释为Linux is not Unix。 
+  - title: Tools 文档 
+    details: Tools文件是整理了, 常用的一些工具软件使用文档, 便于日常使用。 
   - title: Golang 文档 
     details: Golang具有编写并发或网络交互简单、丰富的数据类型、编译快等特点，比较适合于高性能、高并发场景。 
+  - title: Rust 文档 
+    details: Rust是由Mozilla主导开发的通用、编译型编程语言。设计准则为“安全、并发、实用”，支持函数式、并发式、过程式以及面向对象的编程风格。
 ---
 
 
