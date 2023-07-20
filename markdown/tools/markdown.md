@@ -834,16 +834,16 @@ It also supports [line highlighting](#line-highlighting-in-code-blocks):
 **Input**
 
 ```md
-<<< @/snippets/snippet.js{2}
+<<< @/code/snippets/snippet.js{2}
 ```
 
 **Code file**
 
-<<< @/snippets/snippet.js
+<<< @/code/snippets/snippet.js
 
 **Output**
 
-<<< @/snippets/snippet.js{2}
+<<< @/code/snippets/snippet.js{2}
 
 ::: tip
 The value of `@` corresponds to the source root. By default it's the VitePress project root, unless `srcDir` is configured. Alternatively, you can also import from relative paths:
@@ -859,29 +859,29 @@ You can also use a [VS Code region](https://code.visualstudio.com/docs/editor/co
 **Input**
 
 ```md
-<<< @/snippets/snippet-with-region.js#snippet{1}
+<<< @/code/snippets/snippet-with-region.js#snippet{1}
 ```
 
 **Code file**
 
-<<< @/snippets/snippet-with-region.js
+<<< @/code/snippets/snippet-with-region.js
 
 **Output**
 
-<<< @/snippets/snippet-with-region.js#snippet{1}
+<<< @/code/snippets/snippet-with-region.js#snippet{1}
 
 You can also specify the language inside the braces (`{}`) like this:
 
 ```md
-<<< @/snippets/snippet.cs{c#}
+<<< @/code/snippets/snippet.cs{c#}
 
 <!-- with line highlighting: -->
 
-<<< @/snippets/snippet.cs{1,2,4-6 c#}
+<<< @/code/snippets/snippet.cs{1,2,4-6 c#}
 
 <!-- with line numbers: -->
 
-<<< @/snippets/snippet.cs{1,2,4-6 c#:line-numbers}
+<<< @/code/snippets/snippet.cs{1,2,4-6 c#:line-numbers}
 ```
 
 This is helpful if source language cannot be inferred from your file extension.
@@ -955,11 +955,11 @@ You can also [import snippets](#import-code-snippets) in code groups:
 
 <!-- filename is used as title by default -->
 
-<<< @/snippets/snippet.js
+<<< @/code/snippets/snippet.js
 
 <!-- you can provide a custom one too -->
 
-<<< @/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [snippet with region]
+<<< @/code/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [snippet with region]
 
 :::
 ```
@@ -968,9 +968,9 @@ You can also [import snippets](#import-code-snippets) in code groups:
 
 ::: code-group
 
-<<< @/snippets/snippet.js
+<<< @/code/snippets/snippet.js
 
-<<< @/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [snippet with region]
+<<< @/code/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [snippet with region]
 
 :::
 
