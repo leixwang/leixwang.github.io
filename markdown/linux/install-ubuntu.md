@@ -1,9 +1,58 @@
----
-sidebar_position: 2
----
-
-
 # Ubuntu的安装和服务的配置
+
+Ubuntu是一个以桌面应用为主的Linux发行版操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu"一词，意思是“人性”“我的存在是因为大家的存在"，是非洲传统的一种价值观。Ubuntu基于Debian发行版和GNOME桌面环境，而从11.04版起，Ubuntu发行版放弃了GNOME桌面环境，改为Unity。此前人们认为Linux难以安装、难以使用，在Ubuntu出现后这些都成为了历史。Ubuntu也拥有庞大的社区力量，用户可以方便地从社区获得帮助。 自Ubuntu 18.04 LTS起，Ubuntu发行版重新开始使用GNOME3桌面环境。
+
+## ETCHER
+
+可以使用 `ETCHER` 快速高效的,将iso镜像文件写到 U 盘或SD卡里. 支持所有平台. 
+
+![](/images/linux/Etcher_steps.gif)
+
+
+
+[ETCHER官方下载工具](https://etcher.balena.io/)
+### Linux Mint 
+
+Linux Mint 是一个对硬件要求更低的图形化Linux操作. Linux Mint 有三种不同风格的版本，分别提供三种不同的桌面环境。
+
+发行版本 | 简介
+--------|-----------------------
+Cinnamon |	最现代，最新颖，全功能的桌面
+MATE |	A more traditional, and faster desktop
+Xfce |	The most lightweight desktop
+
+#### Cinnamon
+
+Linux Mint 最流行的版本是 Cinnamon 版。Cinnamon 是主要由 Linux Mint 团队开发，专为 Linux Mint 打造的桌面环境，流畅，美观，充满新特性。
+
+![](/images/linux/cinnamon.webp)
+
+
+#### MATE
+
+Linux Mint 还参与了 MATE 的开发，这是一个经典的桌面环境，它是 GNOME 2 的延续，GNOME 2 是 Linux Mint 在 2006 年至 2011 年间的默认桌面。尽管它缺少一些功能，并且开发速度比 Cinnamon 慢，但 MATE 使用的资源更少，并且可以在旧计算机上运行得更快。
+
+![](/images/linux/mate.webp)
+
+
+#### Xfce
+
+
+Xfce 是一个轻量级的桌面环境。它支持的特性没有 Cinnamon 和 MATE 那么多，但极其稳定，消耗极少的资源。
+
+
+
+![](/images/linux/xfce.webp)
+
+
+
+
+
+
+
+
+
+[linuxmint 官方网站](https://linuxmint.com/)
 
 ## Universal USB Installer下载并安装
 
@@ -83,7 +132,7 @@ sidebar_position: 2
 [vscode 下载页面](https://code.visualstudio.com/download)
 
 
-## install teamview
+
 
 ```bash
 $ sudo dpkg --add-architecture i386
