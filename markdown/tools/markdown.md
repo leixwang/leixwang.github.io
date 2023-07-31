@@ -225,6 +225,7 @@ If you'd like to quote someone, use the > character before the line:
 
 ## 代码块
 
+````md
 ```c 
 #include <stdio.h>    
 int main(void){    
@@ -232,6 +233,7 @@ int main(void){
     return 0;    
 }    
 ```
+````
 
 
 效果:
