@@ -19,6 +19,8 @@ package-lock.json*
 
 markdown/.vitepress/dist
 markdown/.vitepress/cache
+markdown/.vitepress/cache/*
+
 .obsidian
 
 # Editor directories and files
