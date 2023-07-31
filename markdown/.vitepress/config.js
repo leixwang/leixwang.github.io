@@ -53,6 +53,34 @@ export default withMermaid({
         ]
       },
       {
+        text: 'TypeScript 文档',
+        collapsible: true,
+        collapsed: true,
+        items: [
+          { text: '简介', link: '/typescript/0_in' },
+		      { text: '基本类型', link: '/typescript/1_type' },
+          { text: '接口', link: '/typescript/2_interface' },
+          { text: '类', link: '/typescript/3_class' },
+          { text: '函数', link: '/typescript/4_function' },
+          { text: '泛型', link: '/typescript/5_generic' },
+          { text: '其他', link: '/typescript/6_other' },
+        ]
+      },
+      {
+        text: 'Vue3 文档',
+				collapsible: true,
+        collapsed: true,
+        items: [
+          { text: '介绍', link: '/vue3/' },
+          { text: 'SFC 语法规范', link: '/vue3/sfc' },
+          { text: 'SFC 工具', link: '/vue3/sfc-tools' },
+          { text: '单文件组件 setup', link: '/vue3/setup' },
+          { text: '单文件组件样式特性', link: '/vue3/sfc-style' },
+          { text: '常用的库', link: '/vue3/packages' },
+          { text: '教案案例', link: '/vue3/1.class' },
+        ]
+      },
+      {
         text: 'Golang 文档',
 				collapsible: true,
         collapsed: true,
