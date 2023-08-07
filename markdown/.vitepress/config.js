@@ -78,6 +78,7 @@ export default withMermaid({
           { text: '单文件组件样式特性', link: '/vue3/sfc-style' },
           { text: '常用的库', link: '/vue3/packages' },
           { text: '教案案例', link: '/vue3/1.class' },
+          { text: 'JaveScript语法', link: '/vue3/0.js' },
         ]
       },
       {
@@ -118,6 +119,7 @@ export default withMermaid({
           { text: 'kernel驱动开发', link: '/tools/driver' },
           { text: '心理学-亚瑟·阿伦36问', link: '/tools/36ask' },
           { text: '电子书和文档', link: '/tools/booklists' },
+          { text: 'SQL语法', link: '/tools/sql' },
         ]
       },
       {

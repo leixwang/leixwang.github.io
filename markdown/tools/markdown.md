@@ -535,7 +535,7 @@ VitePress uses [Shiki](https://shiki.matsu.io/) to highlight language syntax in 
 
 **Input**
 
-````
+````md
 ```js
 export default {
   name: 'MyComponent',
@@ -851,7 +851,7 @@ It also supports [line highlighting](#line-highlighting-in-code-blocks):
 The value of `@` corresponds to the source root. By default it's the VitePress project root, unless `srcDir` is configured. Alternatively, you can also import from relative paths:
 
 ```md
-<<< ../snippets/snippet.js
+<<< @/code/snippets/snippet.js
 ```
 
 :::

@@ -19,9 +19,11 @@
 
 ### 1. 从上到下
 
+```md
 ```js
 flowchart TB
     A --> B
+```
 ```
 
 ```mermaid

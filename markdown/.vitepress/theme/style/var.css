@@ -1,4 +1,10 @@
 :root {
+  /* code number line */
+  --vp-code-block-divider-color: #565656;
+  /* copy code */
+  --vp-code-copy-code-hover-bg: #5570fa;
+
+
   /* 标题 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient( 135deg, #9c6eff 10%, #570DF8 100%);
@@ -24,10 +30,15 @@
   --vp-c-brand-dark: #570DF8;
 	--vp-code-block-bg: #efefef;
 
+  /* details color */
+  --vp-custom-block-details-border: #0055ff;
+  --vp-custom-block-details-text: #00297c;
+  --vp-custom-block-details-bg: #f9f9fa;
+
   /* font color */
   --vp-c-indigo: #181c21;
 
-  --vp-code-copy-code-hover-bg: #5570fa;
+
 }
 .content {
   padding: 0!important;
@@ -44,7 +55,7 @@
 }
 
 .outline-link.active {
-color: #570DF8!important;
+  color: #570DF8!important;
 }
 .line-number {
   color: #181c21!important;
@@ -54,4 +65,10 @@ color: #570DF8!important;
 }
 .VPDocFooter {
   margin-bottom: 4rem;
+}
+
+.custom-block.details {
+  border-color: var(--vp-custom-block-details-border);
+  color: var(--vp-custom-block-details-text);
+  background-color: var(--vp-custom-block-details-bg);
 }

@@ -2,7 +2,7 @@
 # Vue3 常用的库
 
 
-![foo](/images/vue-package.webp)
+![foo](/images/vue/vue-package.webp)
 
 
 

@@ -71,4 +71,4 @@ golang面试题集合
 
 ## go study roadmap
 
-![gostudyroadmap](/images/golang_roadmap.png)
+![gostudyroadmap](/images/golang/golang_roadmap.png)

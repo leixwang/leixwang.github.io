@@ -14,7 +14,7 @@ editLink: true
 | zebra stripes | are neat      |    $1 |
 
 
-![foo](/images/foo.png)
+![foo](/images/clang/foo.png)
 
 The **Pythagorean equation**: 
 
