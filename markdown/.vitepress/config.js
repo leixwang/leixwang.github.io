@@ -113,13 +113,14 @@ export default withMermaid({
 				collapsible: true,
         collapsed: true,
         items: [
+          { text: '协同工作流程', link: '/tools/think' },
           { text: 'Markdow使用文档', link: '/tools/markdown' },
+          { text: '电子书和文档', link: '/tools/booklists' },
           { text: 'github协作开发', link: '/tools/github' },
+          { text: 'SQL语法', link: '/tools/sql' },
           { text: 'matrix通信服务框架', link: '/tools/matrix-synapse' },
           { text: 'kernel驱动开发', link: '/tools/driver' },
           { text: '心理学-亚瑟·阿伦36问', link: '/tools/36ask' },
-          { text: '电子书和文档', link: '/tools/booklists' },
-          { text: 'SQL语法', link: '/tools/sql' },
         ]
       },
       {
