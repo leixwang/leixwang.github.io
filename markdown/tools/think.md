@@ -4,12 +4,12 @@
 
 ## 拉取远程库
 
-先将远程库拉取的本地
+先将远程库拉取的本地, 拉下的分支是 `gh-pages`. 需要切到 `main` 支分上, 进行工作.
 
 
 ```sh
 $ git clone git@github.com:leixwang/think.github.io.git
-
+---
 正克隆到 'think.github.io'...
 remote: Enumerating objects: 230, done.
 remote: Counting objects: 100% (230/230), done.
@@ -25,7 +25,7 @@ remote: Total 230 (delta 53), reused 225 (delta 48), pack-reused 0
 
 ```sh
 $ git fetch origin main
-
+---
 来自 github.com:leixwang/think.github.io
  * branch            main       -> FETCH_HEAD
 ```
@@ -37,7 +37,7 @@ $ git fetch origin main
 
 ```sh
 $ git checkout main
-
+---
 分支 'main' 设置为跟踪 'origin/main'。
 切换到一个新分支 'main'
 ```
@@ -51,14 +51,16 @@ $ git checkout main
 
 ### 缓存本地修改的文件
 
+为了保证本地与远程仓库的一致性, 所以需要将地修改的文件缓存一下. 然后再拉取远程仓库的代码.
 
 ```sh
-$ git stash
+$ git stash           // 本地修改的文件进行缓存一下.
 $ git stash list      // 查看缓存的列表
 ```
 
 ### 同步远程仓库
 
+拉取远程仓库的代码到本地仓库.
 
 ```sh
 $ git pull
@@ -66,6 +68,7 @@ $ git pull
 
 ### 将缓存的修改释放到本地仓库
 
+将本地的修改文件释放到最新的文件代码中.
 
 ```sh
 $ git stash list     // 查看缓存的列表
@@ -88,7 +91,7 @@ $ git add .
 
 ### 本地提交
 
-提交信息, 进入vim模式填写提交信息
+提交信息, 进入vim模式填写提交信息. 
 
 ```sh
 $ git commit
@@ -110,6 +113,7 @@ $ git log
 
 ### 将新提交同步到远程仓库
 
+本地提交完成后, 需要将本地最新修改的文件, 同步到远程仓库中.
 
 ```sh
 $ git push origin main
