@@ -141,6 +141,15 @@ export default withMermaid({
           { text: 'Web前端面试题', link: '/interview/h5' },
         ]
       },
+      {
+        text: '少儿教育',
+				collapsible: true,
+        collapsed: true,
+        items: [
+          { text: '介绍', link: '/kidsedu/index' },
+          { text: '小学生空间认知与数学发展关系', link: '/kidsedu/lunwen1' },
+        ]
+      },
     ],
 		
 		footer: {
