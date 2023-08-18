@@ -3,7 +3,7 @@ Markdown 是一种轻量级标记语言，创始人为約翰·格魯伯（John G
 
 John Gruber 在 2004 年创造了 Markdown 语言，在语法上有很大一部分是跟 Aaron Swartz 共同合作的。这个语言的目的是希望大家使用“易于阅读、易于撰写的纯文字格式，并选择性的转换成有效的 XHTML (或是HTML)”。 其中最重要的设计是可读性，也就是说这个语言应该要能直接在字面上的被阅读，而不用被一些格式化指令标记 (像是 RTF 与 HTML)。 因此，它是现行电子邮件标记格式的惯例，虽然它也借镜了很多早期的标记语言，如：setext、Texile、reStructuredText。 许多网站都使用 Markdown 或是其变种，例如：GitHub、reddit、Diaspora、Stack Exchange、OpenStreetMap 与 SourceForge 让用户更利于讨论。
 
-
+[[toc]]
 
 ## Github MarkDown
 
@@ -1169,7 +1169,128 @@ interface MarkdownOptions extends MarkdownIt.Options {
 ```
 
 
-# 参考文档
+
+## 数学公式mathjs的用例
+
+```md
+$\sqrt{3x-1}+(1+x)^2$
+```
+$\sqrt{3x-1}+(1+x)^2$
+
+
+### The Quadratic Formula
+
+```md
+$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+```
+
+$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+
+### Cauchy's Integral Formula
+
+```md
+$f(a) = \frac{1}{2\pi i} \oint\frac{f(z)}{z-a}dz$
+```
+
+$f(a) = \frac{1}{2\pi i} \oint\frac{f(z)}{z-a}dz$
+
+### Angle Sum Formula for Cosines
+
+```md
+$\cos(\theta+\phi)=\cos(\theta)\cos(\phi)−\sin(\theta)\sin(\phi)$
+```
+
+
+$\cos(\theta+\phi)=\cos(\theta)\cos(\phi)−\sin(\theta)\sin(\phi)$
+
+
+### Gauss' Divergence Theorem
+
+```md
+$int_D ({\nabla\cdot} F)dV=\int_{\partial D} F\cdot ndS$
+```
+
+$int_D ({\nabla\cdot} F)dV=\int_{\partial D} F\cdot ndS$
+
+### Curl of a Vector Field
+
+```md
+$\vec{\nabla} \times \vec{F} = \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \mathbf{i} + \left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) \mathbf{j} + \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \mathbf{k}$
+```
+
+
+$\vec{\nabla} \times \vec{F} = \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \mathbf{i} + \left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) \mathbf{j} + \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \mathbf{k}$
+
+
+### Standard Deviation
+
+```md
+$sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}$
+```
+
+
+$sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}$
+
+
+### Definition of Christoffel Symbols
+
+```md
+$(\nabla_X Y)^k = X^i (\nabla_i Y)^k = X^i \left( \frac{\partial Y^k}{\partial x^i} + \Gamma_{im}^k Y^m \right)$
+```
+
+
+$(\nabla_X Y)^k = X^i (\nabla_i Y)^k = X^i \left( \frac{\partial Y^k}{\partial x^i} + \Gamma_{im}^k Y^m \right)$
+
+
+### demo
+
+```md
+$$\begin{array}{c}
+
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+
+\nabla \cdot \vec{\mathbf{B}} & = 0
+
+\end{array}$$
+
+```
+
+
+$$\begin{array}{c}
+
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+
+\nabla \cdot \vec{\mathbf{B}} & = 0
+
+\end{array}$$
+
+
+$a_0+{1\over\displaystyle a_1+
+      {1\over\displaystyle a_2+
+        {1 \over\displaystyle a_3 + 
+           {1 \over\displaystyle a_4}}}}$
+
+
+$A_{m\times n}=  
+\begin{bmatrix}  
+  a_{11}& a_{12}& \cdots  & a_{1n} \\  
+  a_{21}& a_{22}& \cdots  & a_{2n} \\  
+  \vdots & \vdots & \ddots & \vdots \\  
+  a_{m1}& a_{m2}& \cdots  & a_{mn}  
+\end{bmatrix}  
+=\left [ a_{ij}\right ]$
+
+## 参考文档
 * [维基百科，自由的百科全书 - Markdown](https://zh.wikipedia.org/wiki/Markdown)
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [markdown-it-mathjax3](https://github.com/tani/markdown-it-mathjax3)
+* [mathjax docs](https://docs.mathjax.org/en/latest/basic/mathjax.html)
+* [math 在线编辑工具](https://www.latexlive.com)
+* [math 在线手写工具](http://webdemo.myscript.com/)
