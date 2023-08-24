@@ -244,6 +244,9 @@ export default withMermaid({
           { text: '介绍', link: '/kidsedu/index' },
           { text: '教学要求', link: '/kidsedu/1.class' },
           { text: '小学生空间认知与数学发展关系', link: '/kidsedu/lunwen1' },
+          { text: 'C++课程简介', link: '/kidsedu/1.cpp' },
+          { text: 'Python课程简介', link: '/kidsedu/2.python' },
+          { text: 'Scratch课程简介', link: '/kidsedu/3.scratch' },
         ]
       },
     ],
