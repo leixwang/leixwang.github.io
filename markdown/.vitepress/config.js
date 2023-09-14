@@ -211,6 +211,7 @@ export default withMermaid({
           { text: '协同工作流程', link: '/tools/think' },
           { text: 'Markdow使用文档', link: '/tools/markdown' },
           { text: '电子书和文档', link: '/tools/booklists' },
+          { text: 'git学习文档', link: '/tools/git' },
           { text: 'github协作开发', link: '/tools/github' },
           { text: 'SQL语法', link: '/tools/sql' },
           { text: 'matrix通信服务框架', link: '/tools/matrix-synapse' },
