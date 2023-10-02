@@ -207,6 +207,49 @@ server {
 }
 ```
 
+### 配置静态网站
+
+```sh
+server {
+	listen 80;
+	listen [::]:80;
+	server_name turingthink.site www.turingthink.site;
+	return 302 https://$server_name$request_uri;
+}
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	server_name turingthink.site www.turingthink.site;
+
+	gzip_vary                       on;
+	gzip_proxied                    any;
+	gzip_comp_level                 6;
+	gzip_buffers                    16 8k;
+	gzip_http_version               1.1;
+	gzip_types                      text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+	ssl_certificate     /www/wwwroot/turingthink/cert/turingthink.pem;
+	ssl_certificate_key /www/wwwroot/turingthink/cert/turingthink.key;
+	ssl_session_cache    shared:SSL:1m;
+	ssl_session_timeout  5m;
+	ssl_ciphers  HIGH:!aNULL:!MD5;
+ 	ssl_protocols                   TLSv1.2 TLSv1.3;
+ 	ssl_prefer_server_ciphers       on;
+	ssl_ecdh_curve                  secp384r1;
+
+	location / {
+		root /www/wwwroot/turingthink;
+		index index.html;
+		# try_files $uri $uri/ =404;
+	}
+	location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|js|pdf|txt){
+		root /www/wwwroot/turingthink;
+	}
+
+}
+```
+
 ### 创建 Cron 文件
 
 输入以下命令：
