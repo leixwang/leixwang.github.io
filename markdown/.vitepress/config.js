@@ -145,6 +145,7 @@ export default withMermaid({
           { text: 'nvm安装nodejs', link: '/linux/nodejs' },
           { text: 'CentOS系统基本配置', link: '/linux/centos' },
           { text: 'CentOS系统安装mysql', link: '/linux/centos-mysql' },
+          { text: 'FreeBSD服务器基本配置', link: '/linux/freebsd' },
         ]
       },
       {
@@ -192,6 +193,7 @@ export default withMermaid({
           { text: 'API项目', link: '/golang/api' },
           { text: '常用项目列表', link: '/golang/lists' },
           { text: '项目目录结构', link: '/golang/layout' },
+          { text: '工厂模式编程', link: '/golang/designer' },
         ]
       },
       {
@@ -243,11 +245,16 @@ export default withMermaid({
         collapsed: true,
         items: [
           { text: '介绍', link: '/kidsedu/index' },
+          { text: '少儿编程话术', link: '/kidsedu/4.hua' },
           { text: '教学要求', link: '/kidsedu/1.class' },
           { text: '小学生空间认知与数学发展关系', link: '/kidsedu/lunwen1' },
           { text: 'C++课程简介', link: '/kidsedu/1.cpp' },
           { text: 'Python课程简介', link: '/kidsedu/2.python' },
           { text: 'Scratch课程简介', link: '/kidsedu/3.scratch' },
+          { text: '小颗粒课程简介', link: '/kidsedu/6.lego' },
+          { text: '大颗粒课程简介', link: '/kidsedu/7.lego' },
+          { text: '合作方案', link: '/kidsedu/0.together' },
+          { text: '宣传单', link: '/kidsedu/xuanchuandan' },
         ]
       },
     ],
