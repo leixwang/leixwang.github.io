@@ -217,9 +217,10 @@ export default withMermaid({
         collapsed: true,
         items: [
           { text: 'Rust基本语法', link: '/rust/' },
-          { text: 'Rustlings 学习', link: '/rust/rustlings'},
+          { text: 'Rustlings 学习', link: '/rust/rustlings' },
+          { text: 'arceOS开发文档', link: '/rust/arceos' },
           { text: 'Rust实现cat命令', link: '/rust/cat' },
-          {text: 'Rust OS 第一周作业', link: '/rust/01.weekhomework'},
+          { text: 'Rust OS 第一周作业', link: '/rust/01.weekhomework' },
         ]
       },
       {
