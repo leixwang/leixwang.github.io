@@ -194,6 +194,21 @@ export default withMermaid({
           { text: '常用项目列表', link: '/golang/lists' },
           { text: '项目目录结构', link: '/golang/layout' },
           { text: '工厂模式编程', link: '/golang/designer' },
+          { text: 'CRM项目设计', link: '/golang/leicrm' },
+        ]
+      },
+      {
+        text: 'Flutter 文档',
+				collapsible: true,
+        collapsed: true,
+        items: [
+          { text: 'Flutter 基本语法', link: '/flutter/' },
+          { text: 'Flutter 常用组件', link: '/flutter/components' },
+          { text: 'Flutter 常用布局', link: '/flutter/layout' },
+          { text: 'Flutter 常用动画', link: '/flutter/animation' },
+          { text: 'Flutter 常用状态管理', link: '/flutter/state' },
+          { text: 'SharedPreferences的封装', link: '/flutter/sharedsreferences'},
+          { text: 'Dart 基本语法', link: '/flutter/dart'},
         ]
       },
       {
@@ -202,7 +217,9 @@ export default withMermaid({
         collapsed: true,
         items: [
           { text: 'Rust基本语法', link: '/rust/' },
+          { text: 'Rustlings 学习', link: '/rust/rustlings'},
           { text: 'Rust实现cat命令', link: '/rust/cat' },
+          {text: 'Rust OS 第一周作业', link: '/rust/01.weekhomework'},
         ]
       },
       {
@@ -255,6 +272,8 @@ export default withMermaid({
           { text: '大颗粒课程简介', link: '/kidsedu/7.lego' },
           { text: '合作方案', link: '/kidsedu/0.together' },
           { text: '宣传单', link: '/kidsedu/xuanchuandan' },
+          { text: '王老师简介', link: '/kidsedu/richard'}
+
         ]
       },
     ],
