@@ -132,3 +132,63 @@ factory ThemeData({
 
 [Json转成dart的工具](https://javiercbk.github.io/json_to_dart/)
 
+## snipets
+
+
+Snippet | Description
+----|-----
+fstful | StatefulWidget snippet. This is an alternative of stful
+fstless | StatelessWidget snippet. This is an alternative of stless
+fscaff | Scaffold widget snippet
+fedgall | EdgeInsets widget snippet with named constructor all
+fedgonly | EdgeInsets widget snippet with named constructor only
+ftxt | Text widget snippet
+finitlf | Flutter initState lifecycle method snippet
+fic | Flutter Icon widget snippet
+fcont | Flutter Container widget snippet
+fcent | Flutter Center widget snippet
+frow | Flutter Row widget snippet
+fcol | Flutter Column widget snippet
+fex | Expand widget snippet
+fszbw | SizedBox widget snippet with just width argument
+fszbh | SizedBox widget snippet with just height argument
+fszb | SizedBox widget with width and height arguments
+fedgsym | EdgeInsets widget with named constructor symmetric
+fedgsymv | EdgeInsets widget with named constructor symmetric with vertical parameter
+fedgsymh | EdgeInsets widget with named constructor symmetric with horizontal parameter
+fimpmat | Add material's package import statement
+fstream | Display a StreamBuilder widget
+felbtn | Flutter ElevatedButton snippet
+
+
+Dart | related snippets
+----|-----
+Snippet | Description
+dvar | Dart variable declaration using var
+dfinal | Dart variable declaration using final
+dconst | Dart variable declaration using const
+dinvar | Dart Public Instance variable snippet
+dprinvar | Dart Private instance variable snippet
+dmt | Dart public method snippet
+dprmt | Dart private method snippet
+darr | Dart public arrow function snippet
+dprarr | Dart private arrow function snippet
+dopnctor | Dart optional named parameters constructor snippet
+dlist | Dart List collection snippet
+dmap | Dart Map collection snippet
+dset | Dart Set collection snippet
+dgetarr | Dart arrow function getter snippet
+dimpas | Dart import as snippet
+dimpshow | Dart import show snippet
+dimplazy | Dart import deffered as snippet
+dimphide | Dart import hide snippet
+dexhide | Dart export hide snippet
+dexshow | Dart export show snippet
+dconvert | Dart convert lib import snippet
+dimpmeta | Add meta package import statement
+dan | Add a Dart anonymous function
+dcla | Add Dart Class snippet
+dclae | Add Dart Class snippet with extends keyword
+Flutter Bloc pattern snippets
+Snippet | Description
+fblocprov | Flutter bloc provider snippet
