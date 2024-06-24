@@ -195,6 +195,7 @@ export default withMermaid({
           { text: '项目目录结构', link: '/golang/layout' },
           { text: '工厂模式编程', link: '/golang/designer' },
           { text: 'CRM项目设计', link: '/golang/leicrm' },
+          { text: 'TOTP二次验证', link: '/golang/totp' },
         ]
       },
       {
