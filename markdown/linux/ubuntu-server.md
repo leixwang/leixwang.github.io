@@ -1,5 +1,7 @@
 # ubuntu 20.04 64位
 
+[[toc]]
+
 ### 1. 安装 `mysql` 软件
 
 1. 需要更新升级软件包
@@ -380,6 +382,105 @@ server {
 		proxy_pass http://127.0.0.1:3000;
 	}
 }
+```
+
+
+## 使用 cloudflare 的证书 实现 HTTPS 服务器的配置
+
+这块设置一共分为两大块，是在 `cloudflare` 网站上申请证书，在服务器上配置使用证书。
+
+
+### cloudflare 证书申请
+
+#### 选择 `cloudflare` 申请证书的域名，然后点击 `SSL/TLS` 选项，选择 `完全(严格)` 的证书。
+
+![](/images/linux/ssl1.png)
+
+#### 选择 源服务器 点击右侧的创建证书按钮, 创建需要的证书.
+
+![](/images/linux/ssl2.png)
+
+
+
+
+### nginux 配置
+
+g
+
+```sh
+server {
+	client_max_body_size 64M;
+	listen 80;
+	listen [::]:80;
+	server_name ftanails.us www.ftanails.us;
+	return 301 https://$host$request_uri;
+}
+
+server {
+	listen 443 ssl;
+	server_name ftanails.us www.ftanails.us;
+	ssl_certificate      /etc/nginx/cert/ftanails_us.pem;
+	ssl_certificate_key  /etc/nginx/cert/ftanails_us.key;
+	ssl_session_timeout 5m;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
+
+	location / {
+		proxy_pass             http://127.0.0.1:3008;  # 這是Next.js App要監聽的port
+		proxy_read_timeout     60;
+		proxy_connect_timeout  60;
+		proxy_redirect         off;
+		# Allow the use of websockets
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection 'upgrade';
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+
+	# Enable gzip compression
+	gzip on;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+	gzip_vary on;
+	gzip_min_length 256;
+
+	# Security headers
+	add_header X-Frame-Options SAMEORIGIN;
+	add_header X-XSS-Protection "1; mode=block";
+	add_header X-Content-Type-Options nosniff;
+}
+```
+
+
+### cluod iptagles
+
+可以通过命令行的方式. 让 22, 80, 443, 3306 端口的流量通过 iptables.
+
+```sh
+$ iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+$ iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+$ iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+$ iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
+```
+
+也可以使用下面的命令行手动编辑iptables的配置文件, 增加需要通过的端口号.
+
+```sh
+ vim /etc/iptables/rules.v4
+---
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+```
+
+
+
+```sh
+
+
+
 ```
 
 
