@@ -1,0 +1,1 @@
+import{j as e,c as t,b as a}from"./chunks/framework.CXlYEdFK.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"kidsedu/index.md","filePath":"kidsedu/index.md","lastUpdated":1721298994000}'),d={name:"kidsedu/index.md"};function s(n,r,i,o,c,p){return a(),t("div")}const f=e(d,[["render",s]]);export{m as __pageData,f as default};
