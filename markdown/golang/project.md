@@ -30,8 +30,8 @@
 ### 高德天气
 
 ```
-https://restapi.amap.com/v3/weather/weatherInfo?key=066f3c9815683eb7d9302ce23e0b0676&city=110101
-https://restapi.amap.com/v3/weather/weatherInfo?key=066f3c9815683eb7d9302ce23e0b0676&city=110101
+https://restapi.amap.com/v3/weather/weatherInfo?key=066f23e0b0676&city=110101
+https://restapi.amap.com/v3/weather/weatherInfo?key=066f0676&city=110101
 
 ```
 

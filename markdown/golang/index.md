@@ -14,6 +14,87 @@ Go语言是编程语言设计的又一次尝试，是对类C语言的重大改�
 
 ## 安装Golang
 
+### ubuntu22.02 go-1.22
+
+通过 apt install golang 默认是 1.18版本, 如果想要安装更新的版本, 需要手动安装, 现在最新的版本是 1.23, 但现在项目用到的是 1.22. 所以, 需要手动安装一下. 步骤如下. 安装 1.23 版本也基本差不多
+
+[go 官网下载网址](https://golang.google.cn/dl/) 可以找到最新的版本.
+ 
+我们找到需要安装的版本, 下载到安装机器上.
+
+```sh
+$ wget golang.google.cn/dl/go1.22.2.linux-amd64.tar.gz
+```
+
+解压到 `/usr/local` 目录下:
+
+```sh
+sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+```
+
+设置环境变量, 编辑 `~/.bashrc` 文件, 加入下面一行:
+
+```sh
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+--------------
+or
+--------------
+if [ -f /usr/local/go ];then
+    export GOROOT=/usr/local/go
+	export GOPATH=$HOME/bin
+	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+```
+
+使环境变量生效:
+
+```sh
+source ~/.bashrc
+```
+
+验证安装成功:
+
+```sh
+$ go version
+go version go1.22.2 darwin/amd64
+```
+
+### snapd install go
+
+```sh
+$ sudo apt update
+$ sudo apt install snapd
+
+// 安装到最新的 golang 的版本
+$ sudo snap install go --classic
+```
+
+
+
+## 第一个Go程序
+
+创建一个名为 `hello.go` 的文件, 内容如下:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, world!")
+}
+```
+
+保存文件, 然后运行:
+
+```sh
+$ go run hello.go
+Hello, world!
+```
+
+
 ## VScode golang的插件
 
 
