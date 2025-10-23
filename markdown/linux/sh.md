@@ -1,310 +1,320 @@
-# Ubuntu 16.04下Shadowsocks服务器端安装及优化
+# 基于Shadowsocks-libev配置服务器及手机Clash客户端连接
 
-本教程旨在提供简明的Ubuntu 16.04下安装服务器端Shadowsocks。不同于Ubuntu 16.04之前的教程，本文抛弃initd，转而使用Ubuntu 16.04支持的Systemd管理Shadowsocks的启动与停止，显得更为便捷。优化部分包括BBR、TCP Fast Open以及吞吐量优化。
-本教程仅适用于Ubuntu 16.04及之后的版本，基于Python 3，支持IPv6。
+## 一、服务器端配置（Ubuntu系统）
 
-## 安装pip
-本教程使用Python 3为载体，因Python 3对应的包管理器pip3并未预装，首先安装pip3：
+### 1. 安装Shadowsocks-libev
+```bash
+# 更新系统包
+sudo apt update && sudo apt upgrade -y
 
+# 安装依赖
+sudo apt install -y software-properties-common
 
-```Bash
-sudo apt install python3-pip
+# 添加Shadowsocks-libev仓库
+sudo add-apt-repository -y ppa:max-c-lv/shadowsocks-libev
+
+# 安装Shadowsocks-libev
+sudo apt install -y shadowsocks-libev
 ```
 
-## 安装Shadowsocks
-因Shadowsocks作者不再维护pip中的Shadowsocks（定格在了2.8.2），我们使用下面的命令来安装最新版的Shadowsocks：
+### 2. 配置Shadowsocks服务器
 
-```Bash
-pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+```bash
+# 创建并编辑配置文件
+sudo nano /etc/shadowsocks-libev/config.json
 ```
 
-安装完成后可以使用下面这个命令查看Shadowsocks版本：
+配置文件内容（按需修改以下参数）：
 
-```sh
-sudo ssserver --version
-```
-
-目前会显示“Shadowsocks 3.0.0”。
-
-创建配置文件
-创建Shadowsocks配置文件所在文件夹：
-
-```sh
-sudo mkdir /etc/shadowsocks
-```
-### 配置文件
-
-```sh
-sudo nano /etc/shadowsocks/config.json
-```
-
-需要在`/etc/`目录下创建一个`shadowsocks.json`的文件, 配置文件内容如下:
-```
+```json
 {
-    "server":"my_server_ip",
-    "server_port":8388,
-    "local_address": "127.0.0.1",
-    "local_port":1080,
-    "password":"mypassword",
-    "timeout":300,
-    "method":"rc4-md5"
+  "server": "0.0.0.0",  // 监听所有网卡
+  "server_port": 8388,  // 服务器端口（建议自定义，如10000-65535之间）
+  "local_address": "127.0.0.1",
+  "local_port": 1080,
+  "password": "password123",  // 建议包含大小写字母+数字+符号
+  "timeout": 300,
+  "method": "aes-128-gcm",  // 加密方式（推荐此方式，安全性高）
+  "fast_open": false,
+  "workers": 1
 }
 ```
-各字段的含义：
 
-|name	|info|
-| :------ | :--------------------------------: |
-|server	|服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址|
-|server_port|	服务器端口|
-|local_port|	本地端端口|
-|password|用来加密的密码|
-|timeout|	超时时间（秒）|
-|method|加密方法，"rc4-md5"|
+- 保存退出：按`Ctrl+O`→回车→`Ctrl+X`
 
-测试Shadowsocks配置
-首先记录下服务器的IP地址
+### 3. 配置系统服务（开机自启）
 
-```sh
-ifconfig
+```bash
+# 启动服务
+sudo systemctl start shadowsocks-libev
+
+# 设置开机自启
+sudo systemctl enable shadowsocks-libev
+
+# 查看服务状态（确认是否运行正常）
+sudo systemctl status shadowsocks-libev
 ```
-找到IPv4地址（和IPv6地址），如我的ifconfig输出为
+
+- 若显示`active (running)`则表示启动成功
+
+### 4. 开放防火墙端口
+
+```bash
+# 开放配置文件中设置的端口（以8388为例）
+sudo ufw allow 8388/tcp
+sudo ufw allow 8388/udp
+
+# 重启防火墙
+sudo ufw reload
+
+# 查看端口是否开放
+sudo ufw status | grep 8388
 ```
-eth0      Link encap:Ethernet  HWaddr 46:91:89:4e:c1:52
-          inet addr:138.68.51.55  Bcast:138.68.63.255  Mask:255.255.240.0
-          inet6 addr: fe80::4491:89ff:fe4e:c152/64 Scope:Link
-          inet6 addr: 2604:a880:2:d0::3727:7001/64 Scope:Global
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:102667 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:7869 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:151166937 (151.1 MB)  TX bytes:1151476 (1.1 MB)
+
+### 5. 检查服务器端口监听
+
+```bash
+# 确认Shadowsocks是否在监听配置的端口
+sudo ss -tuln | grep 8388  # 替换为你的server_port
 ```
-所以我的IPv4地址是138.68.51.55，IPv6地址是2604:a880:2:d0::3727:7001。
 
-然后来测试下Shadowsocks能不能正常工作了：
+- 若输出包含`LISTEN`则表示端口监听正常
 
-```sh
-ssserver -c /etc/shadowsocks/config.json
-```
-在Shadowsocks客户端添加服务器，如果你使用的是我提供的那个配置文件的话，地址填写你的IPv4地址或IPv6地址，端口号为8388，加密方法为aes-256-cfb，密码为你设置的密码。然后设置客户端使用全局模式，浏览器登录Google试试应该能直接打开了。
+## 二、手机Clash客户端连接步骤
 
-这时浏览器登录http://ip138.com/就会显示Shadowsocks服务器的IP啦！
+### 1. 准备工作
 
-测试完毕，按Ctrl + C关闭Shadowsocks。
+- 手机安装Clash客户端：
+  - Android：从[Clash for Android官网](https://github.com/Kr328/ClashForAndroid)下载APK安装（需开启"未知来源应用安装"）
+  - iOS：需在App Store搜索"Shadowrocket"等支持Clash的客户端（部分需外区账号）
+- 记录服务器信息：
+  - 服务器IP（公网IP）
+  - 端口（即配置文件中的`server_port`，如8388）
+  - 密码（配置文件中的`password`）
+  - 加密方式（配置文件中的`method`，如`chacha20-ietf-poly1305`）
 
-配置Systemd管理Shadowsocks
-新建Shadowsocks管理文件
+### 2. 配置Clash客户端（以Android为例）
 
-```sh
-sudo nano /etc/systemd/system/shadowsocks-server.service
-```
-复制粘贴：
-```
-[Unit]
-Description=Shadowsocks Server
-After=network.target
+1. 打开Clash客户端，首次启动会提示"添加配置"，选择「手动添加」→「服务器」。
 
-[Service]
-ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
-Restart=on-abort
+2. 选择服务器类型：在弹出的类型列表中，选择「Shadowsocks」。
 
-[Install]
-WantedBy=multi-user.target
-```
-Ctrl + O保存文件，Ctrl + X退出。
+3. 填写服务器信息：
+   - 名称：自定义（如"我的Shadowsocks服务器"）
+   - 服务器地址：输入你的服务器公网IP
+   - 端口：输入配置的`server_port`（如8388）
+   - 密码：输入配置的`password`
+   - 加密方式：选择与服务器一致的`method`（如`chacha20-ietf-poly1305`）
+   - 其他选项默认即可
 
-启动Shadowsocks：
+4. 保存配置：点击右上角「√」保存服务器配置。
 
-```sh
-sudo systemctl start shadowsocks-server
-```
-设置开机启动Shadowsocks：
+### 3. 启动代理
 
-```sh
-sudo systemctl enable shadowsocks-server
-```
-至此，Shadowsock服务器端的基本配置已经全部完成了！
+1. 返回Clash主界面，在「代理」选项卡中，选择你刚添加的服务器（如"我的Shadowsocks服务器"）。
 
-# 优化
-这部分属于进阶操作，在你使用Shadowsocks时感觉到延迟较大，或吞吐量较低时，可以考虑对服务器端进行优化。
+2. 点击主界面顶部的「启动」按钮（通常是一个电源图标），此时会提示"设置VPN连接"，点击「允许」并验证手机密码（系统要求）。
 
-## 开启BBR
-BBR系Google最新开发的TCP拥塞控制算法，目前有着较好的带宽提升效果，甚至不比老牌的锐速差。
+3. 验证连接：打开浏览器访问谷歌等网站，若能正常访问则表示连接成功。
 
-## 升级Linux内核
-BBR在Linux kernel 4.9引入。首先检查服务器kernel版本：
+## 三、常见问题排查
 
-```sh
-uname -r
-```
-如果其显示版本在4.9.0之下，则需要升级Linux内核，否则请忽略下文。
+1. **连接失败**：
+   - 检查服务器IP、端口、密码、加密方式是否与客户端一致
+   - 服务器端执行`journalctl -u shadowsocks-libev -f`查看日志，排查错误
+   - 确认云服务器安全组已开放对应端口（如阿里云、AWS等需在控制台配置）
 
-更新包管理器：
+2. **速度慢**：
+   - 尝试更换服务器端口（避免被封锁）
+   - 切换加密方式为`aes-128-gcm`（兼容性更好但安全性略低）（如`chacha20-ietf-poly1305`）
 
-```sh
-sudo apt update
-```
-查看可用的Linux内核版本：
+3. **客户端提示"无法连接"**：
+   - 服务器端执行`ping 服务器IP`检查网络连通性
+   - 确认手机网络正常（切换4G/5G尝试）
 
-```sh
-sudo apt-cache showpkg linux-image
-```
-找到一个你想要升级的Linux内核版本，如“linux-image-4.10.0-22-generic”：
+## Clash 配置文件yaml的参考用例
 
-```sh
-sudo apt install linux-image-4.10.0-22-generic
-```
-等待安装完成后重启服务器：
+```chash.yaml
 
-```sh
-sudo reboot
-```
-删除老的Linux内核：
+# ClashX 1.118.0 兼容配置（匹配当前Shadowsocks服务器，支持视频加速+Telegram）
+# 已按服务器实际配置优化，无需额外修改（仅确认服务器IP是否正确）
 
-```sh
-sudo purge-old-kernels
-```
-开启BBR
-运行```lsmod | grep bbr```，如果结果中没有tcp_bbr，则先运行：
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090  # ClashX默认控制端口，保留
 
-```sh
-modprobe tcp_bbr
-echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
-```
-运行：
+# 代理服务器列表（完全匹配服务器配置）
+proxies:
+  - name: "ssServer"  # 自定义名称（无特殊字符，与代理组对应）
+    type: ss  # 规范类型写法（ss也支持，shadowsocks更清晰）
+    server: 3.3.3.3  # 你的服务器公网IP（已确认，无需修改）
+    port: 8388             # 服务器端口（与server_port一致，无需修改）
+    password: "password123"# 服务器密码（完全一致，无需修改）
+    cipher: aes-128-gcm    # 关键：与服务器method同步（原chacha20已改为aes-128-gcm）
+    udp: true              # 启用UDP（Telegram语音/视频必需，无需修改）
+      # tls: true          # 关键：注释/删除（服务器已禁用TLS，启用会连接失败）
+    
+  - name: "usa"  # 自定义名称（无特殊字符，与代理组对应）
+    type: ss  # 规范类型写法（ss也支持，shadowsocks更清晰）
+    server: 2.2.2.2  # 你的服务器公网IP（已确认，无需修改）
+    port: 8388             # 服务器端口（与server_port一致，无需修改）
+    password: "password123"# 服务器密码（完全一致，无需修改）
+    cipher: aes-128-gcm    # 关键：与服务器method同步（原chacha20已改为aes-128-gcm）
+    udp: true              # 启用UDP（Telegram语音/视频必需，无需修改）
+      # tls: true          # 关键：注释/删除（服务器已禁用TLS，启用会连接失败）
 
-```sh
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-```
-运行：
+# 代理组配置（引用上述服务器，无需修改）
+proxy-groups:
+  - name: "自动选择"
+    type: url-test
+    proxies:
+      - "ssServer"  # 必须与proxies中的name完全一致（大小写敏感）
+      - "usa"
+    url: http://www.gstatic.com/generate_204  # 测试URL（稳定，无需修改）
+    interval: 300  # 测试间隔（5分钟，无需修改）
 
-```sh
-sysctl -p
-```
-保存生效。运行：
+  - name: "手动选择"
+    type: select
+    proxies:
+      - "ssServer"  # 同上，确保名称匹配
+      - "usa"
+      - DIRECT  # 可选：添加直连选项，方便切换
 
-```sh
-sysctl net.ipv4.tcp_available_congestion_control
-sysctl net.ipv4.tcp_congestion_control
-```
-若均有bbr，则开启BBR成功。
+# 规则配置（保留Telegram+视频网站规则，无需修改）
+rules:
+  # Telegram核心规则（确保TG功能正常）
+  - DOMAIN-SUFFIX,telegram.org,自动选择
+  - DOMAIN-SUFFIX,t.me,自动选择
+  - DOMAIN-SUFFIX,telegram.me,自动选择
+  - DOMAIN-SUFFIX,telegra.ph,自动选择
+  - IP-CIDR,149.154.0.0/16,自动选择  # TG IPv4核心段
+  - IP-CIDR,91.108.0.0/16,自动选择   # TG IPv4核心段
 
-优化吞吐量
-新建配置文件：
+  # 视频网站规则（适配YouTube/Netflix等）
+  - DOMAIN-SUFFIX,youtube.com,自动选择
+  - DOMAIN-SUFFIX,youtu.be,自动选择
+  - DOMAIN-SUFFIX,netflix.com,自动选择
+  - DOMAIN-SUFFIX,disneyplus.com,自动选择
 
-```sh
-sudo nano /etc/sysctl.d/local.conf
-```
-复制粘贴：
-```
-# max open files
-fs.file-max = 51200
-# max read buffer
-net.core.rmem_max = 67108864
-# max write buffer
-net.core.wmem_max = 67108864
-# default read buffer
-net.core.rmem_default = 65536
-# default write buffer
-net.core.wmem_default = 65536
-# max processor input queue
-net.core.netdev_max_backlog = 4096
-# max backlog
-net.core.somaxconn = 4096
+  # 其他常用代理规则
+  - DOMAIN-SUFFIX,google.com,自动选择
+  - DOMAIN-SUFFIX,facebook.com,自动选择
+  - DOMAIN-SUFFIX,twitter.com,自动选择
 
-# resist SYN flood attacks
-net.ipv4.tcp_syncookies = 1
-# reuse timewait sockets when safe
-net.ipv4.tcp_tw_reuse = 1
-# turn off fast timewait sockets recycling
-net.ipv4.tcp_tw_recycle = 0
-# short FIN timeout
-net.ipv4.tcp_fin_timeout = 30
-# short keepalive time
-net.ipv4.tcp_keepalive_time = 1200
-# outbound port range
-net.ipv4.ip_local_port_range = 10000 65000
-# max SYN backlog
-net.ipv4.tcp_max_syn_backlog = 4096
-# max timewait sockets held by system simultaneously
-net.ipv4.tcp_max_tw_buckets = 5000
-# turn on TCP Fast Open on both client and server side
-net.ipv4.tcp_fastopen = 3
-# TCP receive buffer
-net.ipv4.tcp_rmem = 4096 87380 67108864
-# TCP write buffer
-net.ipv4.tcp_wmem = 4096 65536 67108864
-# turn on path MTU discovery
-net.ipv4.tcp_mtu_probing = 1
-
-net.ipv4.tcp_congestion_control = bbr
-```
-运行：
-
-```sh
-sysctl --system
-```
-编辑之前的shadowsocks-server.service文件：
-
-```sh
-sudo nano /etc/systemd/system/shadowsocks-server.service
-```
-在ExecStart前插入一行，内容为：
+  # 国内直连规则（避免国内网站走代理，节省带宽）
+  - GEOIP,CN,DIRECT  # 中国大陆IP直连
+  - DOMAIN-SUFFIX,cn,DIRECT  # 国内域名直连
+  - MATCH,自动选择  # 剩余流量走代理（兜底规则）
 
 ```
-ExecStartPre=/bin/sh -c 'ulimit -n 51200'
+
+
+
+
+视频加载慢通常与服务器带宽、网络线路质量、协议优化或客户端设置有关，可按以下步骤逐步优化提速：
+
+
+### 一、优先排查服务器带宽和负载（核心瓶颈）
+服务器的带宽大小和当前负载是影响速度的首要因素：
+
+#### 1. 检查服务器当前带宽使用情况
+```bash
+# 安装带宽监控工具
+sudo apt install -y iftop
+
+# 实时监控带宽（按q退出）
+sudo iftop
 ```
-即修改后的shadowsocks-server.service内容为：
+- 观察 `TX`（上传速度）是否接近服务器的带宽上限（如服务器是10Mbps带宽，TX长期9-10Mbps就是满负载）；
+- 若带宽跑满，说明服务器带宽不足，需升级服务器套餐（如从10Mbps升到50Mbps）。
 
+#### 2. 检查服务器负载（CPU/内存）
+```bash
+# 实时查看系统负载
+top  # 按q退出
 ```
-[Unit]
-Description=Shadowsocks Server
-After=network.target
+- `CPU` 使用率长期超过80%，或 `内存` 不足（Swap频繁使用），会导致处理速度慢，需升级服务器配置（如增加CPU核心数或内存）。
 
-[Service]
-ExecStartPre=/bin/sh -c 'ulimit -n 51200'
-ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
-Restart=on-abort
 
-[Install]
-WantedBy=multi-user.target
+### 二、优化Shadowsocks服务器配置（提升传输效率）
+通过调整服务器配置，减少加密开销和网络延迟：
+
+#### 1. 启用TCP Fast Open（减少连接延迟）
+```bash
+# 临时启用（立即生效，重启后失效）
+sudo echo 3 > /proc/sys/net/ipv4/tcp_fastopen
+
+# 永久启用（重启后仍有效）
+echo "net.ipv4.tcp_fastopen = 3" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p  # 生效配置
 ```
-Ctrl + O保存文件，Ctrl + X退出。
-
-重载shadowsocks-server.service：
-
-```sh
-sudo systemctl daemon-reload
+然后修改Shadowsocks配置，开启`fast_open`：
+```bash
+sudo nano /etc/shadowsocks-libev/config.json
 ```
-重启Shadowsocks：
-
-```sh
-sudo systemctl restart shadowsocks-server
+将 `"fast_open": false` 改为 `"fast_open": true`，重启服务：
+```bash
+sudo systemctl restart shadowsocks-libev
 ```
-开启TCP Fast Open
-TCP Fast Open可以降低Shadowsocks服务器和客户端的延迟。实际上在上一步已经开启了TCP Fast Open，现在只需要在Shadowsocks配置中启用TCP Fast Open。
 
-编辑config.json：
-
-```sh
-sudo nano /etc/shadowsocks/config.json
+#### 2. 优化加密方式（平衡速度与安全）
+如果对极致速度需求高于安全性，可将加密方式从 `chacha20-ietf-poly1305` 改为更轻量的 `aes-128-gcm`（加密开销更小，速度更快）：
+```json
+// 服务器config.json中修改
+"method": "aes-128-gcm"
 ```
-将fast_open的值由false修改为true。Ctrl + O保存文件，Ctrl + X退出。
+**注意**：修改后需同步更新ClashX客户端配置中的 `cipher` 字段，否则会连接失败。
 
-重启Shadowsocks：
 
-```sh
-sudo systemctl restart shadowsocks-server
+### 三、优化ClashX客户端设置（减少本地延迟）
+#### 1. 调整代理模式（避免规则冗余）
+- 打开ClashX → 代理模式 → 选择 **“全局”**（适合纯境外使用，减少规则匹配开销）；
+- 若需国内网站直连，保留“规则”模式，但简化`rules`配置（删除不必要的域名规则，减少匹配耗时）。
+
+#### 2. 启用缓存和压缩（减少重复加载）
+ClashX默认支持缓存，可在配置文件中添加（加速重复资源加载）：
+```yaml
+# 在配置文件顶部添加
+allow-lan: false
+mode: rule  # 或global
+log-level: info
+external-controller: 127.0.0.1:9090
+cache-file: /tmp/clash.cache  # 启用缓存
 ```
-注意：TCP Fast Open同时需要客户端的支持，即客户端Linux内核版本为3.7.1及以上；你可以在Shadowsocks客户端中启用TCP Fast Open。
 
-至此，Shadowsock服务器端的优化已经全部完成了！
 
-# center os install BBR
-安装wget
-```sh
-$ yum -y install wget
-// 执行BBR PLUS修正版一键脚本
-$ wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
-``
+### 四、优化网络线路（避开拥堵节点）
+#### 1. 测试服务器到国内的网络延迟
+在服务器上测试到国内节点的延迟，判断线路质量：
+```bash
+# 测试到国内节点的延迟（如阿里云杭州节点）
+ping 115.239.210.27  # 淘宝IP，仅作延迟测试
+```
+- 延迟超过200ms说明线路质量差，可尝试更换服务器机房（如从美国换到日本/新加坡，离国内更近）。
+
+#### 2. 更换服务器端口（避开ISP限速）
+部分运营商会对常见端口（如8388）限速，可修改为冷门端口（10000-65535之间）：
+```bash
+# 修改服务器端口（以12345为例）
+sudo nano /etc/shadowsocks-libev/config.json
+# 改 "server_port": 12345
+sudo ufw allow 12345/tcp
+sudo ufw allow 12345/udp
+sudo systemctl restart shadowsocks-libev
+```
+同步更新ClashX客户端的`port`字段为12345。
+
+
+### 五、终极方案：使用更优协议（如V2Ray/XRay）
+如果Shadowsocks速度仍不理想，可考虑换成 **V2Ray/XRay + VMess/VMessAEAD** 协议，其传输效率和抗封锁能力更强，尤其适合视频流媒体。配置步骤可参考之前的XRay教程，核心优势：
+- 支持动态端口和伪装域名，减少被限速概率；
+- 协议头部加密更隐蔽，避免ISP深度包检测（DPI）导致的限速。
+
+
+### 总结提速优先级
+1. **检查服务器带宽**（最常见瓶颈，优先确认）；
+2. **启用TCP Fast Open**（简单有效，延迟降低30%+）；
+3. **更换离国内近的服务器**（如日本/新加坡节点，延迟更低）；
+4. **更换冷门端口**（避开运营商限速）。
+
+按以上步骤操作，通常能提升30%-100%的视频加载速度，若仍不理想，建议升级服务器带宽或更换线路质量更好的服务器。

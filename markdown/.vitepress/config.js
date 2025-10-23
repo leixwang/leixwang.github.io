@@ -259,6 +259,22 @@ export default withMermaid({
         ]
       },
       {
+        text: 'Python3',
+				collapsible: true,
+        collapsed: true,
+        items: [
+          { text: 'Python3文档', link: '/python/index' },
+        ]
+      },
+      {
+        text: 'LangChain',
+				collapsible: true,
+        collapsed: true,
+        items: [
+          { text: 'LangChain文档', link: '/langChain/index' },
+        ]
+      },
+      {
         text: '少儿教育',
 				collapsible: true,
         collapsed: true,
